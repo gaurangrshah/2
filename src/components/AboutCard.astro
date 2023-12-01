@@ -13,7 +13,7 @@ const { title, description, link, linkText } = Astro.props;
     </slot>
     <h5
       slot='title'
-      class='mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white truncate'
+      class='mb-2 text-2xl font-semibold tracking-tight text-primary-content truncate'
     >
       {title || "Your Skills"}
     </h5>
@@ -21,12 +21,12 @@ const { title, description, link, linkText } = Astro.props;
       <slot name='title' />
     </a>
   </div>
-  <p class='mb-3 font-normal text-gray-500 dark:text-gray-400 line-clamp-3'>
+  <p class='mb-3 font-normal text-secondary-content line-clamp-3'>
     {description}
   </p>
   <a
     href={link}
-    class='inline-flex items-center text-sm text-blue-600 hover:underline'
+    class='inline-flex items-center text-sm text-info hover:underline'
   >
     {linkText}
     <svg
@@ -51,5 +51,6 @@ const { title, description, link, linkText } = Astro.props;
   [astro-icon] {
     width: 2rem;
     height: 2rem;
+    color: var(--primary);
   }
 </style>
