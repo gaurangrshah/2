@@ -3,7 +3,7 @@ import { Icon } from "astro-icon";
 ---
 
 <div
-  class='animated-scrolling-logo check flex flex-col gap-y-24 mb-24 z-10 -mt-72'
+  class='animated-scrolling-logo check flex flex-col gap-y-6 md:gap-y-32 lg:mb-24 z-10 -mt-32 md:-mt-56 lg:-mt-96'
 >
   <div class='row-1'>
     <Icon name='cib:gatsby' />
@@ -65,8 +65,8 @@ import { Icon } from "astro-icon";
   }
 
   [astro-icon] {
-    width: 4rem;
-    height: 4rem;
+    width: clamp(2rem, 5vw, 4rem);
+    height: clamp(2rem, 5vw, 4rem);
   }
 
   @keyframes scroll-left {
