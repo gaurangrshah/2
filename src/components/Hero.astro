@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../assets/personwbgcircle.svg";
+
+const yrsWorking = 12;
+const expertise = "Web & Mobile UI";
+---
+
+<div class='relative w-full max-w-4xl mx-auto'>
+  <section class='bg-grid'>
+    <div
+      class='hero w-full h-full text-center flex flex-1 flex-col justify-center items-center'
+    >
+      <h1 class='font-bold leading-loose text-4xl'>Gaurang Shah</h1>
+      <span class='text-xl'>Full Stack Developer</span>
+      <div
+        class='w-full
+          flex
+          justify-between
+          gap-6
+          p-12'
+      >
+        <div class='w-1/4 my-auto text-left'>
+          <h5 class='font-bold'>Expertise:</h5>
+          <p class='text-md'>{expertise}</p>
+        </div>
+        <div class='flex flex-col items-center w-full'>
+          <Image src={avatar} alt='' />
+        </div>
+        <div class='flex flex-col w-1/4 px-3 my-auto'>
+          <div class='flex justify-between items-center'>
+            <strong class='text-lg text-left pr-4'>Years of Experience</strong>
+            <!-- https://css-tricks.com/animating-number-counters/ -->
+          </div>
+          <span
+            id='yrs-working-text'
+            class='text-6xl font-bold'
+            data-number={yrsWorking}></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .bg-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-size: 15px 15px;
+    -webkit-mask-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.5) 25%,
+      rgba(0, 0, 0, 0) 75%
+    );
+    mask-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.5) 25%,
+      rgba(0, 0, 0, 0) 60%
+    );
+    background-size: 20px 20px;
+    background-image: linear-gradient(
+        to right,
+        #e3fadb 1.5px,
+        transparent 1.5px
+      ),
+      linear-gradient(to bottom, #e3fadb 1.5px, transparent 1.5px);
+  }
+</style>
+
+<style>
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+  #yrs-working-text {
+    animation: counter 2.5s forwards ease-in-out;
+    animation-iteration-count: 1;
+    counter-reset: num var(--num);
+  }
+  #yrs-working-text::after {
+    content: counter(num);
+  }
+  @keyframes counter {
+    from {
+      --num: 0;
+    }
+    to {
+      --num: 12;
+    }
+  }
+</style>

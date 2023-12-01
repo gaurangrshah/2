@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import DevIcons from "../components/DevIcons.astro";
+import Info from "../components/Info.astro";
+import Footer from "../components/Footer.astro";
+
+let search = Astro.url.searchParams.get("info");
+---
+
+<Layout title='Gaurang Shah - Developer | Designer | Consultant'>
+  <main>
+    <Hero />
+    <div class='relative'>
+      <div
+        class='before:content-separator before:z-0 before:top-1 before:inset-x-0before:absolute'
+      >
+      </div>
+      <DevIcons />
+    </div>
+    <Info />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    position: relative;
+    margin: auto;
+    padding: 6rem 1rem;
+    width: 100dvw;
+    max-height: 80dvh;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    padding-bottom: 32rem;
+  }
+</style>
+
+<!-- <script>
+  (() => {
+    // create eventlistener that runs on page load and returns the url query string
+    const url = new URL(window.location.href);
+    const search = url.searchParams.get("info");
+    console.log(search);
+  })();
+</script> -->

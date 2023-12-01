@@ -1,0 +1,90 @@
+---
+import ThemeIcon from "../components/ThemeIcon.astro";
+import Navbar from "../components/Navbar.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class='font-sans'>
+    <Navbar />
+    <ThemeIcon />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: rgb(19, 21, 26);
+    background-size: 224px;
+    position: relative;
+  }
+
+  a:is(:hover, :focus, :focus-within) {
+    background-color: rgb(var(--accent));
+    border-radius: 0.25rem;
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>
+
+<style is:global>
+  /* Golden Ratio Scale from: */
+  /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
+  h1 {
+    font-size: clamp(4.77rem, 3vw, 8.88rem);
+  }
+  h2 {
+    font-size: clamp(3.81rem, 2vw, 6.66rem);
+  }
+  h3 {
+    font-size: clamp(3.05rem, 1.5vw, 5rem);
+  }
+  h4 {
+    font-size: clamp(2.44rem, 1.25vw, 3.75rem);
+  }
+  h5 {
+    font-size: clamp(1.95rem, 1vw, 2.81rem);
+  }
+  p {
+    font-size: clamp(0.9rem, 1vw, 1.19rem);
+  }
+  small {
+    font-size: clamp(0.65rem, 0.65vw, 0.72rem);
+  }
+</style>

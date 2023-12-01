@@ -1,0 +1,152 @@
+---
+import Timeline from "../components/Timeline.astro";
+import Card2 from "./AboutCard.astro";
+import { Icon } from "astro-icon";
+---
+
+<section id='about' class='w-full max-w-6xl mt-36 flex pb-36 mx-auto'>
+  <div
+    class='md:group w-full max-w-2xl flex flex-col justify-start gap-9 mx-auto'
+  >
+    <div class='section md:peer mb-24 md:mb-0' data-section='about'>
+      <h5
+        class='mb-12 border-2 rounded-xl font-semibold max-w-[7rem] text-center'
+      >
+        About
+      </h5>
+      <p class='leading-relaxed pb-6 text-gray-400 dark:text-gray-500'>
+        Hey there! I'm Gaurang, a full stack developer with over 12 years of
+        experience in the deisgn, development and consulting industries. At my
+        core I am a problem solver and I love to learn new things. I am
+        passionate about technology and I am always looking for new ways to use
+        it to bring people closer and make the world just a bit better of a
+        place. I am truly optimistic about the future because of my experience
+        with technology and the people I've had the honor of working with
+        thoughout my career.
+      </p>
+
+      <ul class='w-full flex flex-wrap gap-3'>
+        <Card2
+          title='Your Skills'
+          description='I have a wide range of skills and experience in both the front and back end of web development.'
+          link='/skills'
+          linkText='View Skills'
+        >
+          <Icon slot='icon' name='ph:circles-four' />
+        </Card2>
+        <Card2
+          title='My Skills'
+          description='I have a wide range of skills and experience in both the front and back end of web development.'
+          link='/skills'
+          linkText='View Skills'
+        />
+        <Card2
+          title='My Skills'
+          description='I have a wide range of skills and experience in both the front and back end of web development.'
+          link='/skills'
+          linkText='View Skills'
+        />
+        <Card2
+          title='My Skills'
+          description='I have a wide range of skills and experience in both the front and back end of web development.'
+          link='/skills'
+          linkText='View Skills'
+        />
+      </ul>
+    </div>
+    <div class='section md:peer md:hidden' data-section='exp'>
+      <h5
+        class='px-3 mb-12 border-2 rounded-xl font-semibold max-w-[9rem] text-center'
+      >
+        Experience
+      </h5>
+      <p class='leading-relaxed text-gray-400 dark:text-gray-500'>
+        I initially got into technology because of the amazement I feel everyday
+        as I watch the world around me as it is transformed by ordinary people
+        just like me. With each new advancement, new doors are opened and new
+        opportunities are created. I am excited to see what the future holds and
+        I am eager to be a part of it.
+      </p>
+      <Timeline />
+    </div>
+  </div>
+  <div class='hidden md:flex flex-col items-start gap-y-3 mt-12 pr-20'>
+    <button
+      class='hover:opacity-50 text-md px-3 rounded'
+      data-section='about'
+      disabled>About</button
+    >
+    <button class='hover:opacity-50 text-md px-3 rounded' data-section='exp'
+      >Experience</button
+    >
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll("button");
+  const sections = document.querySelectorAll(".section");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const sectionId = button.dataset.section;
+      sections.forEach((section) => {
+        section.classList.add("md:hidden");
+      });
+
+      buttons.forEach((btn) => {
+        btn.removeAttribute("disabled");
+      });
+      const current = document.querySelector(
+        `.section[data-section='${sectionId}']`
+      );
+      current?.classList.remove("md:hidden");
+      const currBtn = document.querySelector(
+        `button[data-section='${sectionId}']`
+      ); // Disable the currently active button
+
+      currBtn?.setAttribute("disabled", "true");
+    });
+  });
+</script>
+
+<style>
+  .section {
+    transition: opacity 0.65s ease-in-out;
+    opacity: 0;
+  }
+
+  .section:not(.hidden) {
+    opacity: 1;
+  }
+
+  button {
+    transition: opacity 0.5s ease-in-out;
+    transition: background 0.25 ease-in-out;
+  }
+
+  button:not(:disabled):hover {
+    opacity: 0.5;
+    background: #070340;
+  }
+
+  button[disabled] {
+    opacity: 0.5;
+    background: #070340;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.25rem;
+    height: 100%;
+    background: yellow;
+    border-radius: 0.25rem;
+  }
+  [astro-icon] {
+    width: 2rem;
+    height: 2rem;
+  }
+</style>

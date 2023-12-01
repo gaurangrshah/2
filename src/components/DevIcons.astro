@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div
+  class='animated-scrolling-logo check flex flex-col gap-y-24 mb-24 z-10 -mt-72'
+>
+  <div class='row-1'>
+    <Icon name='cib:gatsby' />
+    <Icon name='cib:git' />
+    <Icon name='cib:github' />
+    <Icon name='cib:graphql' />
+    <Icon name='simple-icons:jamstack' />
+    <Icon name='cib:next-js' />
+    <Icon name='simple-icons:nodedotjs' />
+    <Icon name='cib:javascript' />
+    <Icon name='cib:typescript' />
+    <Icon name='cib:linux' />
+    <Icon name='cib:python' />
+    <Icon name='cib:flask' />
+    <Icon name='cib:jest' />
+  </div>
+  <div class='row-2'>
+    <Icon name='simple-icons:astro' />
+    <Icon name='cib:apple' />
+    <Icon name='cib:mongodb' />
+    <Icon name='cib:mysql' />
+    <Icon name='cib:html5' />
+    <Icon name='cib:css3-shiled' />
+    <Icon name='simple-icons:tailwindcss' />
+    <Icon name='cib:docker' />
+    <Icon name='cib:electron' />
+    <Icon name='simple-icons:express' />
+    <Icon name='cib:figma' />
+    <Icon name='cib:adobe' />
+  </div>
+</div>
+
+<style>
+  .animated-scrolling-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .animated-scrolling-logo .row-1,
+  .animated-scrolling-logo .row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 12rem;
+  }
+
+  .animated-scrolling-logo .row-1 {
+    transform: translateX(-60%);
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .animated-scrolling-logo .row-2 {
+    transform: translateX(60%);
+    animation: scroll-right 30s linear infinite;
+  }
+
+  [astro-icon] {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(-70%);
+    }
+    to {
+      transform: translateX(70%);
+    }
+  }
+
+  @keyframes scroll-right {
+    from {
+      transform: translateX(70%);
+    }
+    to {
+      transform: translateX(-70%);
+    }
+  }
+
+  .check: {
+  }
+</style>
