@@ -12,6 +12,23 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang='en'>
   <head>
+    <script is:inline>
+      // ☝️ This script prevent the FART effect.
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "gs-light");
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+      // "theme" LocalStorage value is set by the package to remember user preference.
+      // The value is checked and applyed before rendering anything.
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+      // 👆 you could import the CDN directly instead of these two lines
+    </script>
     <meta charset='UTF-8' />
     <meta name='description' content='Astro description' />
     <meta name='viewport' content='width=device-width' />
@@ -34,6 +51,11 @@ const { title } = Astro.props;
     position: relative;
   }
 
+  html[data-theme="gs-dark"] {
+    background-color: rgb(var(--rgb-dark-primary));
+    color: #fff;
+  }
+
   a:is(:hover, :focus, :focus-within) {
     background-color: rgb(var(--accent));
     border-radius: 0.25rem;
@@ -49,70 +71,5 @@ const { title } = Astro.props;
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
-  }
-</style>
-
-<style is:global>
-  /* Golden Ratio Scale from: */
-  /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
-  h1 {
-    font-size: clamp(4.77rem, 3vw, 8.88rem);
-  }
-  h2 {
-    font-size: clamp(3.81rem, 2vw, 6.66rem);
-  }
-  h3 {
-    font-size: clamp(3.05rem, 1.5vw, 5rem);
-  }
-  h4 {
-    font-size: clamp(2.44rem, 1.25vw, 3.75rem);
-  }
-  h5 {
-    font-size: clamp(1.95rem, 1vw, 2.81rem);
-  }
-  p {
-    font-size: clamp(0.9rem, 1vw, 1.19rem);
-  }
-  small {
-    font-size: clamp(0.65rem, 0.65vw, 0.72rem);
-  }
-  :root {
-    --primary: rgb(133, 133, 204);
-    --primary-focus: rgb(117, 117, 183);
-    --primary-content: rgb(216, 216, 243);
-    --secondary: rgb(247, 240, 217);
-    --secondary-focus: rgb(244, 241, 210);
-    --secondary-content: rgb(247, 251, 251);
-    --accent: rgb(117, 213, 108);
-    --accent-focus: rgb(106, 211, 93);
-    --accent-content: rgb(217, 247, 217);
-    --neutral: rgb(255, 255, 255);
-    --neutral-focus: rgb(255, 255, 255);
-    --neutral-content: rgb(0, 0, 0);
-    --base-content: rgb(0, 0, 0);
-    --info: rgb(64, 149, 255);
-    --success: rgb(0, 255, 128);
-    --warning: rgb(255, 179, 64);
-    --error: rgb(255, 107, 107);
-  }
-  :root:has(.dark) {
-    --primary: rgb(7, 3, 64);
-    --primary-focus: rgb(255, 255, 255);
-    --primary-content: rgb(54, 54, 114);
-    --secondary: rgb(227, 250, 219);
-    --secondary-focus: rgb(255, 255, 255);
-    --secondary-content: rgb(177, 177, 177);
-    --accent: rgb(28, 206, 49);
-    --accent-focus: rgb(0, 128, 0);
-    --accent-content: rgb(13, 57, 27);
-    --neutral: rgb(255, 255, 255);
-    --neutral-focus: rgb(255, 255, 255);
-    --neutral-content: rgb(0, 0, 0);
-
-    --base-content: rgb(0, 0, 0);
-    --info: rgb(0, 64, 255);
-    --success: rgb(34, 131, 27);
-    --warning: rgb(255, 128, 0);
-    --error: rgb(163, 15, 15);
   }
 </style>
