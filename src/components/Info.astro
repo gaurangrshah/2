@@ -127,12 +127,12 @@ import { Icon } from "astro-icon";
 
   button:not(:disabled):hover {
     opacity: 0.5;
-    background: #070340;
+    background: oklch(var(--p));
   }
 
   button[disabled] {
     opacity: 0.5;
-    background: #070340;
+    background: oklch(var(--p));
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -143,7 +143,7 @@ import { Icon } from "astro-icon";
     left: 0;
     width: 0.25rem;
     height: 2rem;
-    background: rgb(24, 197, 94);
+    background: oklch(var(--a));
     border-radius: 0.25rem;
   }
   [astro-icon] {

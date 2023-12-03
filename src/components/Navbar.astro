@@ -18,22 +18,22 @@ import { Icon } from "astro-icon";
         <div class='hidden md:flex items-center space-x-1'>
           <a
             href=''
-            class='py-4 px-2 text-accent border-b-4 border-accent font-semibold'
+            class='py-4 px-2 text-lg font-semibold text-accent border-b-4 border-accent'
             >Home</a
           >
           <a
             href=''
-            class='py-4 px-2 text-gray-500 font-semibold hover:text-accent'
+            class='py-4 px-2 text-gray-500 text-lg font-semibold hover:text-accent'
             >Services</a
           >
           <a
             href=''
-            class='py-4 px-2 text-gray-500 font-semibold hover:text-accent'
+            class='py-4 px-2 text-gray-500 text-lg font-semibold hover:text-accent'
             >About</a
           >
           <a
             href=''
-            class='py-4 px-2 text-gray-500 font-semibold hover:text-accent'
+            class='py-4 px-2 text-gray-500 text-lg font-semibold hover:text-accent'
             >Contact Us</a
           >
         </div>
@@ -42,12 +42,12 @@ import { Icon } from "astro-icon";
       <div class='hidden md:flex items-center space-x-3'>
         <a
           href=''
-          class='py-2 px-2 font-medium text-accent rounded hover:bg-accent hover:text-white'
+          class='py-2 px-2 font-medium text-accent text-base rounded hover:bg-accent hover:text-white'
           >Log In</a
         >
         <a
           href=''
-          class='py-2 px-2 font-medium text-white bg-accent rounded hover:bg-accent-focus'
+          class='py-2 px-2 font-medium text-white text-base bg-accent rounded hover:bg-accent-focus'
           >Sign Up</a
         >
       </div>
@@ -88,10 +88,10 @@ import { Icon } from "astro-icon";
     color: var(--accent);
   }
   #mobile-menu a:hover {
-    background: #6ad35d;
+    background: oklch(var(--a));
   }
   #mobile-menu li:has(.active) a {
-    background: #6ad35d;
+    background: oklch(var(--a));
   }
   [astro-icon] {
     width: 1.5rem;
@@ -99,7 +99,7 @@ import { Icon } from "astro-icon";
     color: var(--color-gray-500);
   }
   #mobile-menu-button [astro-icon]:hover {
-    color: #6ad35d;
+    color: oklch(var(--a));
   }
 </style>
 <script>

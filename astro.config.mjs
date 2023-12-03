@@ -16,7 +16,7 @@ export default defineConfig({
   output: 'static',
   integrations: [
     tailwind({
-      applyBaseStyles: true
+      applyBaseStyles: false, // allows base styles to be overridden
     }),
     // icon({
     //   include: {

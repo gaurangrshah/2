@@ -11,8 +11,12 @@ const expertise = "Web & Mobile UI";
     <div
       class='hero w-full h-full text-center flex flex-1 flex-col justify-center items-center'
     >
-      <h1 class='font-bold leading-loose text-4xl'>Gaurang Shah</h1>
-      <span class='text-xl text-secondary-content'>Full Stack Developer</span>
+      <h1
+        class='font-bold leading-loose text-4xl text-secondary dark:text-primary'
+      >
+        Gaurang Shah
+      </h1>
+      <span class='text-xl text-accent'>Full Stack Developer</span>
       <div
         class='w-full
           flex
@@ -21,16 +25,14 @@ const expertise = "Web & Mobile UI";
           p-12'
       >
         <div class='w-1/4 max-w-1/4 my-auto text-left'>
-          <h5 class='h5-category font-bold text-secondary-content'>
-            Expertise:
-          </h5>
+          <h5 class='h5-category font-bold text-base-content'>Expertise:</h5>
           <p class='p-detail whitespace-nowrap text-accent'>{expertise}</p>
         </div>
         <div class='flex flex-col items-center w-full'>
           <Image src={avatar} alt='' />
         </div>
         <div class='flex flex-col px-3 my-auto'>
-          <strong class='h5-category text-left pr-2 text-secondary-content'
+          <strong class='h5-category text-left pr-2 text-base-content'
             >Experience:</strong
           >
           <!-- https://css-tricks.com/animating-number-counters/ -->
@@ -46,8 +48,8 @@ const expertise = "Web & Mobile UI";
               </p>
             </div>
             <div class='flex items-center'>
-              <p class='h5-category inline -mt-4 text-secondary-content'>+</p>
-              <p class='h5-category inline -mt-4 text-secondary-content'>yrs</p>
+              <p class='h5-category inline -mt-4 text-base-content'>+</p>
+              <p class='h5-category inline -mt-4 text-base-content'>yrs</p>
             </div>
           </div>
         </div>
@@ -81,10 +83,10 @@ const expertise = "Web & Mobile UI";
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
-        var(--secondary) 1.5px,
+        oklch(var(--s)) 1.5px,
         transparent 1.5px
       ),
-      linear-gradient(to bottom, var(--secondary) 1.5px, transparent 1.5px);
+      linear-gradient(to bottom, oklch(var(--s)) 1.5px, transparent 1.5px);
   }
   .h5-category {
     font-size: clamp(1rem, 1.5vw, 1.5rem);
