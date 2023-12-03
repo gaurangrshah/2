@@ -1,9 +1,6 @@
 import type { Config } from 'tailwindcss';
 module.exports = {
-	darkMode: 'class',
-	variants: {
-		dark: ['[data-theme="gs-dark"]'],
-	},
+	darkMode: ['class', '[data-theme="gs-dark"]'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		screens: {
@@ -49,8 +46,8 @@ module.exports = {
 				'error': '#DA1515',
 			},
 			'gs-dark': {
-				'primary': '#E3FADB',
-				'primary-focus': '#C7FFB3',
+				'primary': '#C7FFB3',
+				'primary-focus': '#E3FADB',
 				'primary-content': '#505050',
 				'secondary': '#170D9D',
 				'secondary-focus': '#120A78',
