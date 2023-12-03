@@ -47,18 +47,14 @@ const { title } = Astro.props;
 <style is:global>
   html {
     font-family: system-ui, sans-serif;
-    background: rgb(19, 21, 26);
-    background-size: 224px;
+    /* background-color: oklch(var(--b3) / 0.5);
+    color: oklch(var(--bc));
+    background-size: 224px; */
     position: relative;
   }
 
-  html[data-theme="gs-dark"] {
-    background-color: #060424;
-    color: #fff;
-  }
-
   a:is(:hover, :focus, :focus-within) {
-    background-color: rgb(var(--accent));
+    background-color: oklch(var(--a));
     border-radius: 0.25rem;
   }
 

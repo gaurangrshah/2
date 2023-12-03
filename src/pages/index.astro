@@ -12,10 +12,12 @@ let search = Astro.url.searchParams.get("info");
   <main>
     <Hero />
     <div class='relative'>
-      <div
-        class='before:content-separator before:z-0 before:top-1 before:inset-x-0before:absolute'
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 418' fill='none'
+        ><path
+          class='fill-primary/30'
+          d='M0 0s379 115.31 720 115.31S1440 0 1440 0v209H0V0ZM1440 418s-379-115.31-720-115.31S0 418 0 418V209h1440v209Z'
+        ></path></svg
       >
-      </div>
       <DevIcons />
     </div>
     <Info />
@@ -28,10 +30,9 @@ let search = Astro.url.searchParams.get("info");
   main {
     position: relative;
     margin: auto;
-    padding: 6rem 1rem;
+    padding: 6rem 0rem;
     width: 100dvw;
     max-height: 80dvh;
-    color: white;
     font-size: 20px;
     line-height: 1.6;
     padding-bottom: 32rem;

@@ -9,16 +9,17 @@ const expertise = "Web & Mobile UI";
 <div class='relative w-full max-w-4xl mx-auto'>
   <section class='bg-grid'>
     <div
-      class='hero w-full h-full text-center flex flex-1 flex-col justify-center items-center'
+      id='hero'
+      class='w-full h-full text-center flex flex-1 flex-col justify-center items-center'
     >
-      <h1
+      <h2
         class='font-bold leading-loose text-4xl text-secondary dark:text-primary'
       >
         Gaurang Shah
-      </h1>
+      </h2>
       <span class='text-xl text-accent'>Full Stack Developer</span>
       <div
-        class='w-full
+        class='w-full2020
           flex
           justify-between
           gap-6
@@ -59,7 +60,11 @@ const expertise = "Web & Mobile UI";
 </div>
 
 <style>
+  [data-theme="gs-dark"] .bg-grid::before {
+    --gradient-base: oklch(var(--p));
+  }
   .bg-grid::before {
+    --gradient-base: oklch(var(--s));
     content: "";
     position: absolute;
     top: 0;
@@ -83,11 +88,12 @@ const expertise = "Web & Mobile UI";
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
-        oklch(var(--p)) 1.5px,
+        var(--gradient-base) 1.5px,
         transparent 1.5px
       ),
-      linear-gradient(to bottom, oklch(var(--p)) 1.5px, transparent 1.5px);
+      linear-gradient(to bottom, var(--gradient-base) 1.5px, transparent 1.5px);
   }
+
   .h5-category {
     font-size: clamp(1rem, 1.5vw, 1.5rem);
   }

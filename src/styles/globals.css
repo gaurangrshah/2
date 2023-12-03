@@ -9,19 +9,18 @@
   /* Golden Ratio Scale from: */
   /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
   :root {
-    --pf: 47.02 0.075 283.11;
-    --sf: 81.29 0.027 94.79;
-    --af: 61.24 0.13 141.96;
-    --nf: 86.2 0.004 236.51;
+    --pf: 90.43 0.049 132.99; /* #D3E7C6 */
+    --sf: 74.11 0.073 250.73; /* #89AFD8 */
+    --af: 70.77 0.119 143.88;  /* #71B470 */
+    --nf: 38.46 0.023 61.85; /* #4D4137 */
 
   }
 
   :root:has([data-theme='dark']) {
-    --pf: 13.9 0.078 273.78;
-    --sf: 100 0 0;
-    --af: 51.98 0.177 142.495;
-    --nf: 86.2 0.004 236.51;
-    margin-top: 200px
+    --pf: 36.45 0.04 250.32; /* #2E4053 */
+    --sf: 60.2 0.094 239.81; /* #4788B3 */
+    --af: 42.55 0.055 159.85; /* #325844 */
+    --nf: 98.16 0.002 247.84; /* #F8F9FA */
   }
 
   h1 {
