@@ -14,6 +14,9 @@
     --af: 70.77 0.119 143.88;  /* #71B470 */
     --nf: 38.46 0.023 61.85; /* #4D4137 */
 
+    --animation-delay: 200ms;
+    --animation-duration: 600ms;
+
   }
 
   :root:has([data-theme='dark']) {

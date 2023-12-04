@@ -24,6 +24,45 @@ module.exports = {
 				'accent-focus': 'oklch(var(--af) / <alpha-value>)',
 				'neutral-focus': 'oklch(var(--nf) / <alpha-value>)',
 			},
+			keyframes: {
+        slideUpAndFade: {
+          from: { opacity: '0', transform: 'translateY(200px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideRightAndFade: {
+          from: { opacity: '0', transform: 'translateX(-200px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideDownAndFade: {
+          from: { opacity: '0', transform: 'translateY(-200px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideLeftAndFade: {
+          from: { opacity: '0', transform: 'translateX(200px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
+          '100%': { opacity: '0' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+					'50%': { opacity: '0.8' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+				fadeIn: 'fadeIn 1.25s ease-in-out',
+				fadeOut: 'fadeOut 1.25s ease-in-out',
+        slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideRightAndFade:
+          'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideDownAndFade:
+          'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideLeftAndFade:
+          'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+      },
 		},
 	},
 	 plugins: [require("daisyui")],
