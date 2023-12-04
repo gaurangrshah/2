@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon";
+
+const { title, description, icon } = Astro.props as ServiceCardProps;
+---
+
+<div class='w-80 border-b border-primary-content/30'>
+  <div class='w-full flex flex-row p-4'>
+    <div>
+      <Icon name={icon} />
+    </div>
+    <div>
+      <h2 class='card-title'>{title}</h2>
+      <p class='text-left'>
+        {description}
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  [astro-icon] {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+  }
+</style>

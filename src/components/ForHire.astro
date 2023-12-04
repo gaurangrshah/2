@@ -1,4 +1,11 @@
-<section class='flex flex-col items-center pt-24 w-full h-[90vh]'>
+---
+import Service from "./Service.astro";
+// import ServiceCard from "./ServiceCard.astro";
+---
+
+<section
+  class='flex flex-col items-center pt-24 w-full h-[75vh] max-w-4xl mx-auto'
+>
   <svg
     xmlns='http://www.w3.org/2000/svg'
     class='absolute fill-primary/10'
@@ -14,38 +21,87 @@
   >
     Open to work
   </h3>
-  <div role='tablist' class='tabs tabs-boxed my-12'>
+  <div role='tablist' class='tabs tabs-boxed my-8'>
     <a role='tab' class='tab'>Freelancer</a>
     <a role='tab' class='tab tab-active'>Consultant</a>
     <a role='tab' class='tab'>Engineer</a>
   </div>
   <div id='hire' class='group text-center my-6'>
-    <div class='hidden' data-section='freelancer'>
-      <p class='peer max-w-2xl mx-auto py-6' data-section='freelancer'>
-        As a freelance developer, I work with small-to-medium sized businesses
+    <Service
+      intro={`As a freelance developer, I work with small-to-medium sized businesses
         (SMB) to help achieve various goals. From building a brand new web
         presence to a complete overhaul of an exisiting online presence. I take
         pride in being able to help you make the right decisions along the way
-        from branding to design to development.
-      </p>
-    </div>
-    <div data-section='consultant'>
-      <p class='peer max-w-2xl mx-auto py-6'>
-        In the ever-evolving world of technology, it's crucial to have a trusted
+        from branding to design to development.`}
+      section='freelancer'
+      services={[
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+      ]}
+    />
+    <Service
+      intro={`In the ever-evolving world of technology, it's crucial to have a trusted
         advisor by your side. My goal is to help your business improve your
         processes, tailor a custom workflow leveraging technology to meet and
-        exceed your business goals.
-      </p>
-    </div>
-    <div class='hidden' data-section='engineer'>
-      <p class='peer max-w-2xl mx-auto py-6'>
-        As a software engineer, I am available for hire for both full-time and
+        exceed your business goals.`}
+      section='consultant'
+      selected={true}
+      services={[
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+      ]}
+    />
+    <Service
+      intro={`As a software engineer, I am available for hire for both full-time and
         part-time positions. I enjoy working as a part of a team and
         collaborating with others to build amazing products. My experience in
         various industries and technologies allows me to be a valuable addition
-        to your team.
-      </p>
-    </div>
+        to your team.`}
+      section='engineer'
+      services={[
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+        {
+          title: "Web Design",
+          description: "This is a description for web designs.",
+          icon: "ph:user",
+        },
+      ]}
+    />
   </div>
 </section>
 
