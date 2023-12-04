@@ -6,6 +6,7 @@ import { Icon } from "astro-icon";
 
 <section id='about' class='w-full max-w-6xl mt-36 flex pb-36 mx-auto'>
   <div
+    id='info'
     class='px-4 md:group w-full max-w-2xl flex flex-col justify-start gap-9 mx-auto'
   >
     <div class='section md:peer mb-24 md:mb-0' data-section='about'>
@@ -83,13 +84,14 @@ import { Icon } from "astro-icon";
 </section>
 
 <script>
-  const buttons = document.querySelectorAll("button");
-  const sections = document.querySelectorAll(".section");
+  const buttons = document.querySelectorAll("#about button");
+  const info = document.querySelector("#info");
+  const sections = info?.querySelectorAll(".section");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const sectionId = button.dataset.section;
-      sections.forEach((section) => {
+      const sectionId = (button as HTMLButtonElement).dataset.section;
+      sections?.forEach((section) => {
         section.classList.add("md:hidden");
       });
 

@@ -1,0 +1,83 @@
+<section class='flex flex-col items-center pt-24 w-full h-[90vh]'>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    class='absolute fill-primary/10'
+    viewBox='0 0 218 146'
+  >
+    <path
+      fill-rule='evenodd'
+      d='M211.56 146c4.168-11.552 6.44-24.011 6.44-37C218 48.801 169.199 0 109 0S0 48.801 0 109c0 12.989 2.272 25.448 6.44 37C21.59 104.013 61.79 74 109 74s87.41 30.013 102.56 72Z'
+      clip-rule='evenodd'></path>
+  </svg>
+  <h3
+    class='py-6 font-bold text-center text-base-100 text-stroke-3 tracking-wider'
+  >
+    Open to work
+  </h3>
+  <div role='tablist' class='tabs tabs-boxed my-12'>
+    <a role='tab' class='tab'>Freelancer</a>
+    <a role='tab' class='tab tab-active'>Consultant</a>
+    <a role='tab' class='tab'>Engineer</a>
+  </div>
+  <div id='hire' class='group text-center my-6'>
+    <div class='hidden' data-section='freelancer'>
+      <p class='peer max-w-2xl mx-auto py-6' data-section='freelancer'>
+        As a freelance developer, I work with small-to-medium sized businesses
+        (SMB) to help achieve various goals. From building a brand new web
+        presence to a complete overhaul of an exisiting online presence. I take
+        pride in being able to help you make the right decisions along the way
+        from branding to design to development.
+      </p>
+    </div>
+    <div data-section='consultant'>
+      <p class='peer max-w-2xl mx-auto py-6'>
+        In the ever-evolving world of technology, it's crucial to have a trusted
+        advisor by your side. My goal is to help your business improve your
+        processes, tailor a custom workflow leveraging technology to meet and
+        exceed your business goals.
+      </p>
+    </div>
+    <div class='hidden' data-section='engineer'>
+      <p class='peer max-w-2xl mx-auto py-6'>
+        As a software engineer, I am available for hire for both full-time and
+        part-time positions. I enjoy working as a part of a team and
+        collaborating with others to build amazing products. My experience in
+        various industries and technologies allows me to be a valuable addition
+        to your team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-stroke-3 {
+    text-shadow:
+      -2px -2px 0 oklch(var(--pc)),
+      2px -2px 0 oklch(var(--pc)),
+      -2px 2px 0 oklch(var(--pc)),
+      2px 2px 0 oklch(var(--pc));
+  }
+</style>
+
+<script>
+  (() => {
+    const tabs = document.querySelectorAll(".tab");
+    const group = document.querySelector("#hire.group");
+    const sections = group?.querySelectorAll("[data-section]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((tab) => tab.classList.remove("tab-active"));
+        tab.classList.add("tab-active");
+
+        const target = tab?.textContent?.toLowerCase();
+        sections?.forEach((section) => {
+          section.classList.remove("hidden");
+          if ((section as HTMLDivElement)?.dataset.section !== target) {
+            section.classList.add("hidden");
+          }
+        });
+      });
+    });
+  })();
+</script>
