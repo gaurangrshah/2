@@ -1,16 +1,15 @@
 ---
 import { Icon } from "astro-icon";
 
-const { title, description, link, linkText } = Astro.props;
+const { title, description, link, linkText, icon, index } =
+  Astro.props as AboutCardProps;
 ---
 
 <div
-  class='flex-1 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'
+  class='flex-1 px-6 py-3 to-secondary from-secondary/20 border border-gray-200 rounded-lg shadow bg-gradient-to-br dark:from-secondary/20 dark:to-secondary/70 dark:border-gray-700 initial'
 >
   <div class='flex gap-x-4'>
-    <slot name='icon'>
-      <Icon name='ph:circles-four' />
-    </slot>
+    <Icon name={icon || "ph:circles-four"} />
     <h5
       slot='title'
       class='mb-2 text-2xl font-semibold tracking-tight text-primary-content truncate'
@@ -21,7 +20,7 @@ const { title, description, link, linkText } = Astro.props;
       <slot name='title' />
     </a>
   </div>
-  <p class='mb-3 font-normal text-secondary-content line-clamp-3'>
+  <p class='mb-3 font-normal text-secondary-content line-clamp-2'>
     {description}
   </p>
   <a
@@ -47,10 +46,19 @@ const { title, description, link, linkText } = Astro.props;
   </a>
 </div>
 
-<style>
+<style define:vars={{ index }}>
   [astro-icon] {
     width: 2rem;
     height: 2rem;
     color: var(--primary);
+  }
+
+  .initial {
+    --gs-delay: index * 0.25s;
+    --gs-duration: 6s;
+    animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
+    animation-delay: var(--gs-delay, 0s);
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
   }
 </style>

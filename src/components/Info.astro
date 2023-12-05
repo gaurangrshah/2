@@ -2,20 +2,59 @@
 import Timeline from "../components/Timeline.astro";
 import Card2 from "./AboutCard.astro";
 import { Icon } from "astro-icon";
+
+const skills = {
+  about: [
+    {
+      title: "Your Skills",
+      description:
+        "I have a wide range of skills and experience in both the front and back end of web development.",
+      link: "/skills",
+      linkText: "View Skills",
+      index: 1,
+      icon: "ph:circles-three",
+    },
+    {
+      title: "Your Skills",
+      description:
+        "I have a wide range of skills and experience in both the front and back end of web development.",
+      link: "/skills",
+      linkText: "View Skills",
+      index: 2,
+    },
+    {
+      title: "Your Skills",
+      description:
+        "I have a wide range of skills and experience in both the front and back end of web development.",
+      link: "/skills",
+      linkText: "View Skills",
+    },
+    {
+      title: "Your Skills",
+      description:
+        "I have a wide range of skills and experience in both the front and back end of web development.",
+      link: "/skills",
+      linkText: "View Skills",
+    },
+  ],
+};
 ---
 
-<section id='about' class='w-full max-w-6xl my-32 flex pb-36 mx-auto'>
+<section id='about' class='w-full max-w-6xl flex mx-auto pt-36'>
   <div
     id='info'
     class='px-4 md:group w-full max-w-2xl flex flex-col justify-start gap-9 mx-auto'
   >
     <div class='section md:peer mb-24 md:mb-0' data-section='about'>
       <h5
-        class='mb-12 border-2 rounded-xl font-semibold max-w-[7rem] text-center'
+        class='mb-12 border-2 rounded-xl font-semibold max-w-[7rem] text-center initial'
       >
         About
       </h5>
-      <p class='leading-relaxed pb-6 text-secondary-content'>
+      <p
+        class='leading-relaxed pb-6 text-secondary-content initial'
+        style='--gs-delay:0.5s'
+      >
         Hey there! I'm Gaurang, a full stack developer with over 12 years of
         experience in the design, development and consulting industries. At my
         core I am a problem solver and I love to learn new things. I am
@@ -25,42 +64,33 @@ import { Icon } from "astro-icon";
         the people I've had the honor of working with thoughout my career.
       </p>
 
-      <ul class='w-full flex flex-wrap gap-3'>
-        <Card2
-          title='Your Skills'
-          description='I have a wide range of skills and experience in both the front and back end of web development.'
-          link='/skills'
-          linkText='View Skills'
-        >
-          <Icon slot='icon' name='ph:circles-four' />
-        </Card2>
-        <Card2
-          title='My Skills'
-          description='I have a wide range of skills and experience in both the front and back end of web development.'
-          link='/skills'
-          linkText='View Skills'
-        />
-        <Card2
-          title='My Skills'
-          description='I have a wide range of skills and experience in both the front and back end of web development.'
-          link='/skills'
-          linkText='View Skills'
-        />
-        <Card2
-          title='My Skills'
-          description='I have a wide range of skills and experience in both the front and back end of web development.'
-          link='/skills'
-          linkText='View Skills'
-        />
+      <ul class='w-full flex flex-wrap gap-3 my-9'>
+        {
+          skills.about.map((skill, i: number) => {
+            return (
+              <Card2
+                title={skill.title}
+                description={skill.description}
+                link={skill.link}
+                linkText={skill.linkText}
+                index={i + 1}
+                icon={skill.icon}
+              />
+            );
+          })
+        }
       </ul>
     </div>
     <div class='section md:peer md:hidden' data-section='exp'>
       <h5
-        class='px-3 mb-12 border-2 rounded-xl font-semibold max-w-[12rem] text-center'
+        class='px-3 mb-12 border-2 rounded-xl font-semibold max-w-[12rem] text-center initial'
       >
         Experience
       </h5>
-      <p class='leading-relaxed text-secondary-content'>
+      <p
+        class='leading-relaxed text-secondary-content initial'
+        style='--gs-delay:0.5s;'
+      >
         I initially got into technology because of the amazement I feel everyday
         as I watch the world around me as it is transformed by ordinary people
         just like me. With each new advancement, new doors are opened and new
@@ -70,17 +100,47 @@ import { Icon } from "astro-icon";
       <Timeline />
     </div>
   </div>
-  <div class='hidden md:flex flex-col items-start gap-y-3 mt-12 pr-20'>
-    <button
-      class='relative hover:opacity-50 text-md px-3 rounded'
-      data-section='about'
-      disabled>About</button
-    >
-    <button
-      class='relative hover:opacity-50 text-md px-3 rounded'
-      data-section='exp'>Experience</button
-    >
-  </div>
+
+  <ul
+    class='menu bg-base-200/30 w-56 rounded-box hidden md:block max-h-24 secondary'
+  >
+    <li class='secondary' style='--gs-delay:1s;'>
+      <button data-section='about' disabled>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-5 w-5'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          ><path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+          ></path></svg
+        >
+         About
+      </button>
+    </li>
+    <li class='secondary'>
+      <button data-section='exp' style='--gs-delay:1.5s;'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-5 w-5'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          ><path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+          ></path></svg
+        >
+         Experience
+      </button>
+    </li>
+  </ul>
 </section>
 
 <script>
@@ -90,7 +150,7 @@ import { Icon } from "astro-icon";
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const sectionId = (button as HTMLButtonElement).dataset.section;
+      const sectionId = (button as HTMLAnchorElement).dataset.section;
       sections?.forEach((section) => {
         section.classList.add("md:hidden");
       });
@@ -112,6 +172,23 @@ import { Icon } from "astro-icon";
 </script>
 
 <style>
+  .initial {
+    --gs-delay: 0.25s;
+    --gs-duration: 1.25s;
+    animation: slideUpAndFade var(--gs-duration) ease-in-out both;
+    animation-delay: var(--gs-delay, 0) s;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+  .secondary {
+    --gs-delay: 0.25s;
+    --gs-duration: 1.25s;
+    animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
+    animation-delay: var(--gs-delay, 0) s;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+
   .section {
     transition: opacity 0.65s ease-in-out;
     opacity: 0;
@@ -136,16 +213,6 @@ import { Icon } from "astro-icon";
     background: oklch(var(--p));
     pointer-events: none;
     cursor: not-allowed;
-  }
-  button[disabled]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0.25rem;
-    height: 2rem;
-    background: oklch(var(--a));
-    border-radius: 0.25rem;
   }
   [astro-icon] {
     width: 2rem;
