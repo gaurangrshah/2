@@ -40,7 +40,9 @@ const delay1 = 2.5;
             {expertise}
           </p>
         </div>
-        <div class='flex flex-col items-center w-full'>
+        <div
+          class='flex flex-col items-center w-full animate-slideUpAndFade initial'
+        >
           <Image src={avatar} alt='' />
         </div>
         <div class='flex flex-col px-3 my-auto'>
@@ -77,11 +79,12 @@ const delay1 = 2.5;
   }
 
   .initial {
-    animation-delay: calc(var(--delay1) * 1ms);
+    --gs-delay: 0.5;
+    animation-delay: calc(var(--gs-delay) * 1ms);
   }
 
   .secondary {
-    animation-delay: calc(var(--delay1) * 2ms);
+    animation-delay: calc(var(--gs-delay) * 2ms);
     animation-duration: 2.5s;
   }
 
