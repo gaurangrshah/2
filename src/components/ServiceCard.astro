@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 const { title, description, icon } = Astro.props as ServiceCardProps;
 ---
 
-<div class='w-80 border-b border-primary-content/30'>
+<div class='w-80 border-b border-primary-content/30 secondary'>
   <div class='w-full flex flex-row p-4'>
     <div>
       <Icon name={icon} />
@@ -23,5 +23,13 @@ const { title, description, icon } = Astro.props as ServiceCardProps;
     width: 2rem;
     height: 2rem;
     margin-right: 1rem;
+  }
+  .secondary {
+    --gs-delay: 0.25s;
+    --gs-duration: 1.25s;
+    animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
+    animation-delay: var(--gs-delay, 0) s;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
   }
 </style>
