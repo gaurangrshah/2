@@ -1,7 +1,6 @@
 ---
 import Timeline from "../components/Timeline.astro";
-import Card2 from "./AboutCard.astro";
-import { Icon } from "astro-icon";
+import AboutCard from "./AboutCard.astro";
 
 const skills = {
   about: [
@@ -52,7 +51,7 @@ const skills = {
         About
       </h5>
       <p
-        class='leading-relaxed pb-6 text-secondary-content initial'
+        class='bg-base-200/30 p-6 rounded-md leading-relaxed pb-6 text-secondary-content initial'
         style='--gs-delay:0.5s'
       >
         Hey there! I'm Gaurang, a full stack developer with over 12 years of
@@ -68,7 +67,7 @@ const skills = {
         {
           skills.about.map((skill, i: number) => {
             return (
-              <Card2
+              <AboutCard
                 title={skill.title}
                 description={skill.description}
                 link={skill.link}
@@ -88,7 +87,7 @@ const skills = {
         Experience
       </h5>
       <p
-        class='leading-relaxed text-secondary-content initial'
+        class='bg-base-200/30 p-6 rounded-md leading-relaxed pb-6 text-secondary-content initial'
         style='--gs-delay:0.5s;'
       >
         I initially got into technology because of the amazement I feel everyday
