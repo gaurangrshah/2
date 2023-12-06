@@ -1,3 +1,7 @@
+---
+import { showToast } from "./Toast.astro";
+---
+
 <section
   id='contact'
   class='w-full max-w-4xl mx-auto mt-32 mb-64 text-base-content px-6'
@@ -92,6 +96,8 @@
 </section>
 
 <script>
+  import { showToast } from "./Toast.astro";
+
   const form = document.getElementById("contact-form") as HTMLFormElement;
 
   form?.addEventListener("submit", async (event) => {
@@ -102,16 +108,17 @@
 
     // Access form data
     const firstName = formData.get("first-name");
-    console.log("🚀 | file: Contact.astro:105 | firstName:", firstName);
     const lastName = formData.get("last-name");
     const email = formData.get("email");
     const message = formData.get("message");
 
     const response = await fetch("/api/send-email", {
+      headers: {
+        "Content-Type": "application/json",
+      },
       method: "POST",
       body: JSON.stringify({
-        firstName,
-        lastName,
+        name: `${firstName} ${lastName}`,
         email,
         message,
       }),
@@ -123,13 +130,10 @@
       return;
     }
 
-    // Send data to server
-    // ... (implement your logic here)
-
     // Clear form fields
     form.reset();
 
-    // Show success message
+    showToast({ content: "Message sent! We'll be in touch shortly." });
     // ...
   });
 </script>

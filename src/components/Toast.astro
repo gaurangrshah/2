@@ -1,0 +1,40 @@
+---
+const type = "info";
+const content = "New message arrived";
+
+export function showToast({ content }: { content: string }) {
+  if (window !== undefined) {
+    const toast = document.getElementById("toast");
+    // update data-toast-content
+    toast?.querySelector("span")?.setAttribute("data-toast-content", content);
+    toast?.classList.remove("hidden");
+    setTimeout(() => {
+      toast?.classList.add("hidden");
+    }, 6000);
+  }
+}
+---
+
+<div id='toast' class='hidden toast toast-top toast-end z-50'>
+  <div class=`alert alert-${"info"}`>
+    <span data-toast-content={content}></span>
+  </div>
+</div>
+
+<style>
+  .toast .alert span::before {
+    content: attr(data-toast-content);
+    margin-right: 0.5rem;
+  }
+
+  .toast {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .toast.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out 0s;
+  }
+</style>
