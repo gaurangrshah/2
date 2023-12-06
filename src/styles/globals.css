@@ -61,6 +61,9 @@
   p {
     font-size: clamp(0.9rem, 1vw, 1.19rem);
   }
+  span {
+    font-size: clamp(0.9rem, 1vw, 1.19rem);
+  }
   small {
     font-size: clamp(0.65rem, 0.65vw, 0.72rem);
   }
