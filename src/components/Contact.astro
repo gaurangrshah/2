@@ -2,98 +2,97 @@
 import { showToast } from "./Toast.astro";
 ---
 
-<section
-  id='contact'
-  class='w-full max-w-4xl mx-auto mt-32 mb-64 text-base-content px-6'
->
-  <div class='flex flex-col items-center justify-center mb-24'>
-    <h3 class='text-5xl font-bold text-base-content'>Reach Out Today</h3>
-    <p class='text-sm'>
-      Tell me a bit about your project and let's get to working!
-    </p>
-  </div>
-  <form id='contact-form' class='flex w-full justify-between'>
-    <div class='w-1/4 border-b border-gray-900/10 px-2'>
-      <h2 class='text-base font-semibold leading-7'>Feel free to elaborate</h2>
-      <p class='mt-1 text-sm leading-6 text-gray-600'>
-        Fill out the form entirely and get directly in touch with me.
+<div class='relative'>
+  <section
+    id='contact'
+    class='relative w-full max-w-4xl mx-auto mt-32 mb-64 text-base-content px-6'
+  >
+    <div class='flex flex-col items-center justify-center mb-24'>
+      <h3 class='text-5xl font-bold text-base-content leading-loose'>
+        Reach Out Today
+      </h3>
+      <p class='text-sm'>
+        Tell me a bit about your project and let's get to work!
       </p>
     </div>
-    <div class='w-3/4 border-b border-gray-900/10 pb-12'>
-      <div class='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-        <div class='sm:col-span-3'>
-          <label
-            for='first-name'
-            class='block text-sm font-medium leading-6 text-base-content'
-            >First name</label
-          >
-          <div class='mt-2'>
-            <input
-              type='text'
-              name='first-name'
-              id='first-name'
-              autocomplete='given-name'
-              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-            />
+
+    <form id='contact-form' class='flex w-full justify-between'>
+      <div class='w-3/4 border-b border-gray-900/10 pb-12 mx-auto'>
+        <div class='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+          <div class='sm:col-span-3'>
+            <label
+              for='first-name'
+              class='block text-sm font-medium leading-6 text-base-content'
+              >First name</label
+            >
+            <div class='mt-2'>
+              <input
+                type='text'
+                name='first-name'
+                id='first-name'
+                autocomplete='given-name'
+                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+              />
+            </div>
+          </div>
+
+          <div class='sm:col-span-3'>
+            <label
+              for='last-name'
+              class='block text-sm font-medium leading-6 text-base-content'
+              >Last name</label
+            >
+            <div class='mt-2'>
+              <input
+                type='text'
+                name='last-name'
+                id='last-name'
+                autocomplete='family-name'
+                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+              />
+            </div>
+          </div>
+
+          <div class='sm:col-span-6'>
+            <label
+              for='email'
+              class='block text-sm font-medium leading-6 text-base-content'
+              >Email address</label
+            >
+            <div class='mt-2'>
+              <input
+                id='email'
+                name='email'
+                type='email'
+                autocomplete='email'
+                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+              />
+            </div>
+          </div>
+
+          <div class='sm:col-span-6'>
+            <label
+              for='message'
+              class='block text-sm font-medium leading-6 text-base-content'
+              >Message</label
+            >
+            <div class='mt-2'>
+              <textarea
+                id='message'
+                name='message'
+                rows={5}
+                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20 p-2'
+              ></textarea>
+            </div>
           </div>
         </div>
-
-        <div class='sm:col-span-3'>
-          <label
-            for='last-name'
-            class='block text-sm font-medium leading-6 text-base-content'
-            >Last name</label
-          >
-          <div class='mt-2'>
-            <input
-              type='text'
-              name='last-name'
-              id='last-name'
-              autocomplete='family-name'
-              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-            />
-          </div>
-        </div>
-
-        <div class='sm:col-span-6'>
-          <label
-            for='email'
-            class='block text-sm font-medium leading-6 text-base-content'
-            >Email address</label
-          >
-          <div class='mt-2'>
-            <input
-              id='email'
-              name='email'
-              type='email'
-              autocomplete='email'
-              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-            />
-          </div>
-        </div>
-
-        <div class='sm:col-span-6'>
-          <label
-            for='message'
-            class='block text-sm font-medium leading-6 text-base-content'
-            >Message</label
-          >
-          <div class='mt-2'>
-            <textarea
-              id='message'
-              name='message'
-              rows={5}
-              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20 p-2'
-            ></textarea>
-          </div>
+        <div class='flex flex-row justify-end mt-12'>
+          <button type='submit' class='btn btn-accent'>Submit</button>
         </div>
       </div>
-      <div class='flex flex-row justify-end mt-12'>
-        <button type='submit' class='btn btn-primary'>Submit</button>
-      </div>
-    </div>
-  </form>
-</section>
+    </form>
+  </section>
+</div>
 
 <script>
   import { showToast } from "./Toast.astro";
@@ -126,14 +125,18 @@ import { showToast } from "./Toast.astro";
 
     if (!response.ok) {
       // handle error
-      console.log("🚀 | file: Contact.astro:123 | response:", response);
+      showToast({
+        content: "Something went wrong. Please try again later.",
+      });
       return;
     }
 
     // Clear form fields
     form.reset();
 
-    showToast({ content: "Message sent! We'll be in touch shortly." });
+    showToast({
+      content: "Message sent! We'll be in touch shortly.",
+    });
     // ...
   });
 </script>
