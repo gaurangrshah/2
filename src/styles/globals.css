@@ -51,6 +51,25 @@
       monospace;
   }
 
+
+  section {
+    min-height: 80dvh;
+  }
+
+  section::before {
+    content: '';
+    display: block;
+    padding-top: 4rem;
+    border: 3px solid oklch(var(--af));
+  }
+
+  section::after {
+    content: '';
+    display: block;
+    padding-bottom: 4rem;
+    border: 3px solid oklch(var(--pf));
+  }
+
   .initial {
     --gs-delay: 0.25s;
     --gs-duration: 1.25s;
