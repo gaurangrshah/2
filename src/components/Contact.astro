@@ -1,7 +1,3 @@
----
-import { showToast } from "./Toast.astro";
----
-
 <div class='relative'>
   <section
     id='contact'
@@ -95,7 +91,7 @@ import { showToast } from "./Toast.astro";
 </div>
 
 <script>
-  import { showToast } from "./Toast.astro";
+  import { showToast } from "../utils/show-toast";
 
   const form = document.getElementById("contact-form") as HTMLFormElement;
 
