@@ -1,5 +1,5 @@
-import * as nodemailer from 'nodemailer';
-
+// @ts-ignore // Ignore the missing type declarations for nodemailer
+import nodemailer from 'nodemailer';
 interface EmailOptions {
   from: string;
   to: string;
@@ -11,10 +11,10 @@ interface EmailOptions {
 class SendEmail {
   transporter: nodemailer.Transport;
 
-  private host = import.meta.env.SMTP_HOST;
-  private port = import.meta.env.SMTP_PORT;
-  private user = import.meta.env.SMTP_USER;
-  private pass = import.meta.env.SMTP_PASS;
+  private host = import.meta.env.SMTP_HOST as string;
+  private port = Number(import.meta.env.SMTP_PORT);
+  private user = import.meta.env.SMTP_USER as string;
+  private pass = import.meta.env.SMTP_PASS as string;
 
 constructor() {
     const transportOptions = {
