@@ -13,12 +13,10 @@ const delay1 = 2.5;
       id='hero'
       class='w-full h-full text-center flex flex-1 flex-col justify-center items-center'
     >
-      <h2
-        class='font-bold leading-tight text-4xl text-base-content animate-slideUpAndFade initial'
-      >
+      <h2 class='font-bold leading-tight text-4xl text-base-content initial'>
         Gaurang Shah
       </h2>
-      <span class='text-lg text-accent font-bold animate-fadeIn secondary'
+      <span class='text-lg text-accent font-bold secondary'
         >Full Stack Developer</span
       >
       <div
@@ -29,32 +27,25 @@ const delay1 = 2.5;
           p-12'
       >
         <div class='w-1/4 max-w-1/4 my-auto text-left'>
-          <h5
-            class='h5-category font-bold text-base-content animate-slideLeftAndFade initial'
-          >
+          <h5 class='h5-category font-bold text-base-content initial'>
             Expertise:
           </h5>
-          <p
-            class='p-detail whitespace-nowrap text-accent animate-fadeIn secondary'
-          >
+          <p class='p-detail whitespace-nowrap text-accent secondary'>
             {expertise}
           </p>
         </div>
-        <div
-          class='flex flex-col items-center w-full animate-slideUpAndFade initial'
-        >
+        <div class='flex flex-col items-center w-full initial'>
           <Image src={avatar} alt='' />
         </div>
         <div class='flex flex-col px-3 my-auto'>
-          <strong
-            class='h5-category text-left pr-2 text-base-content animate-slideRightAndFade initial'
+          <strong class='h5-category text-left pr-2 text-base-content initial'
             >Experience:</strong
           >
-          <!-- https://css-tricks.com/animating-number-counters/ -->
-          <div class='flex gap-x-3 animate-fadeIn secondary'>
+          <div class='flex gap-x-3 secondary'>
             <div
               class='border-4 border-secondary-content text-accent rounded-full w-14 h-14 md:w-20 md:h-20 flex justify-center items-center shadow-sm shadow-accent'
             >
+              <!-- @see: ../styles/global.css-->
               <p
                 id='yrs-working-text'
                 class='h5-num font-bold'
@@ -76,16 +67,6 @@ const delay1 = 2.5;
 <style define:vars={{ delay1 }}>
   [data-theme="gs-dark"] .bg-grid::before {
     --gradient-base: oklch(var(--p));
-  }
-
-  .initial {
-    --gs-delay: 0.5;
-    animation-delay: calc(var(--gs-delay) * 1ms);
-  }
-
-  .secondary {
-    animation-delay: calc(var(--gs-delay) * 2ms);
-    animation-duration: 2.5s;
   }
 
   .bg-grid::before {
@@ -128,15 +109,7 @@ const delay1 = 2.5;
   .h5-num {
     font-size: clamp(2rem, 1.75vw, 2.25rem);
   }
-</style>
 
-<style>
-  /* @SEE: https://css-tricks.com/animating-number-counters/ */
-  @property --num {
-    syntax: "<integer>";
-    initial-value: 0;
-    inherits: false;
-  }
   #yrs-working-text {
     animation: counter 2.5s forwards ease-in-out;
     animation-iteration-count: 1;
@@ -144,13 +117,5 @@ const delay1 = 2.5;
   }
   #yrs-working-text::before {
     content: counter(num);
-  }
-  @keyframes counter {
-    from {
-      --num: 0;
-    }
-    to {
-      --num: 12;
-    }
   }
 </style>
