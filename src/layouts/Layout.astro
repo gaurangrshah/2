@@ -26,9 +26,8 @@ const { title } = Astro.props;
       // The value is checked and applyed before rendering anything.
     </script>
     <script>
-      import { themeChange } from "theme-change";
+      import { themeChange } from "../utils/theme-change.ts";
       themeChange();
-      // 👆 you could import the CDN directly instead of these two lines
     </script>
     <script
       src='https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js'
@@ -47,31 +46,3 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
-
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    position: relative;
-  }
-
-  a:is(:hover, :focus, :focus-within) {
-    background-color: oklch(var(--a));
-    border-radius: 0.25rem;
-  }
-
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-
-  section {
-    min-height: 80dvh;
-  }
-</style>
