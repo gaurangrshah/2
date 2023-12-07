@@ -1,5 +1,6 @@
-// implements prefers-color-scheme on top of logic originally found @
-
+// adds theme change functionality to the page and stores the theme in localStorage
+// allows for user prefers color scheme evaluation
+// https://github.com/saadeghi/theme-change
 interface HTMLElementWithTheme extends HTMLElement {
     setAttribute(name: 'data-theme', value: string | null): void;
     getAttribute(name: 'data-theme'): string | null;
@@ -103,8 +104,6 @@ function themeSelect(): void {
         })
     }
 }
-
-// Similar modifications for themeBtn and themeSelect...
 
 export function themeChange(attach: boolean = true): void {
   if (attach === true) {
