@@ -5,9 +5,6 @@
 @tailwind components;
 
 @layer base {
-  /* Golden Ratio Scale from: */
-  /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
-
   :root {
     --pf: 90.43 0.049 132.99; /* #D3E7C6 */
     --sf: 74.11 0.073 250.73; /* #89AFD8 */
@@ -23,6 +20,35 @@
     --sf: 60.2 0.094 239.81; /* #4788B3 */
     --af: 42.55 0.055 159.85; /* #325844 */
     --nf: 98.16 0.002 247.84; /* #F8F9FA */
+  }
+
+  * {
+    transition: background-color var(--animation-duration) ease-in-out,
+      color var(--animation-duration) ease-in-out,
+      border-color var(--animation-duration) ease-in-out,
+      box-shadow var(--animation-duration) ease-in-out;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    position: relative;
+  }
+
+  a:is(:hover, :focus, :focus-within) {
+    background-color: oklch(var(--a));
+    border-radius: 0.25rem;
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
   }
 
   .initial {
@@ -42,6 +68,8 @@
     animation-range: entry 50% cover 50%;
   }
 
+  /* Golden Ratio Scale from: */
+  /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
 
   h1 {
     font-size: clamp(4.77rem, 3vw, 8.88rem);
@@ -67,6 +95,8 @@
   small {
     font-size: clamp(0.65rem, 0.65vw, 0.72rem);
   }
+
+
   /* @SEE: https://css-tricks.com/animating-number-counters/ */
   /* Used by Hero.astro  */
   @property --num {
