@@ -8,7 +8,6 @@ import { analytics, site } from "./src/config.json";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-import tasks from './src/utils/tasks';
 
 
 // https://astro.build/config
@@ -30,8 +29,7 @@ export default defineConfig({
         changefreq: 'weekly',
         priority: 0.7,
         lastmod: new Date('2022-02-24'),
-    }),
-    tasks()
+    })
   ],
   vite: {
     resolve: {
