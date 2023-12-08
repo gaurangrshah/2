@@ -11,7 +11,12 @@ import Toast from "../components/Toast.astro";
 let search = Astro.url.searchParams.get("info");
 ---
 
-<Layout title='Gaurang Shah - Developer | Designer | Consultant'>
+<Layout
+  metadata={{
+    title:
+      "Gaurang Shah - Freelance Developer | Technology Consultant | Full-Stack Engineer",
+  }}
+>
   <Toast content='this is a test' />
   <main>
     <Hero />
@@ -24,7 +29,8 @@ let search = Astro.url.searchParams.get("info");
       >
         <path
           d='M0 0s122.122 37.241 232 37.241S464 0 464 0v67.5H0V0Zm464 135S341.878 97.759 232 97.759 0 135 0 135V67.5h464V135Z'
-        ></path>
+        >
+        </path>
       </svg>
       <DevIcons />
     </div>
