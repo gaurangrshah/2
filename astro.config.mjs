@@ -6,7 +6,9 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import { analytics, site } from "./src/config.json";
 import vercel from "@astrojs/vercel/serverless";
+import sitemap from "@astrojs/sitemap";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,8 +24,7 @@ export default defineConfig({
   //   include: {
   //   },
   // }),
-  ],
-
+  , sitemap()],
   vite: {
     resolve: {
       alias: {
