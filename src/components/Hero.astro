@@ -4,19 +4,20 @@ import avatar from "../assets/personwbgcircle.svg";
 
 const yrsWorking = 12;
 const expertise = "Web & Mobile UI";
-const delay1 = 2.5;
 ---
 
-<div class='relative w-full max-w-4xl mx-auto mt-36 my-12'>
+<div class='relative w-full max-w-4xl mx-auto'>
   <section class='bg-grid'>
     <div
       id='hero'
       class='w-full h-full text-center flex flex-1 flex-col justify-center items-center'
     >
-      <h2 class='font-bold leading-tight text-4xl text-base-content initial'>
+      <h2
+        class='font-bold leading-tight text-4xl text-base-content animate-slideUpAndFade initial'
+      >
         Gaurang Shah
       </h2>
-      <span class='text-lg text-accent font-bold secondary'
+      <span class='text-lg text-accent font-bold initial'
         >Full Stack Developer</span
       >
       <div
@@ -30,7 +31,9 @@ const delay1 = 2.5;
           <h5 class='h5-category font-bold text-base-content initial'>
             Expertise:
           </h5>
-          <p class='p-detail whitespace-nowrap text-accent secondary'>
+          <p
+            class='p-detail whitespace-nowrap text-accent animate-slideRightAndFade secondary'
+          >
             {expertise}
           </p>
         </div>
@@ -41,7 +44,7 @@ const delay1 = 2.5;
           <strong class='h5-category text-left pr-2 text-base-content initial'
             >Experience:</strong
           >
-          <div class='flex gap-x-3 secondary'>
+          <div class='flex gap-x-3 animate-slideLeftAndFade secondary'>
             <div
               class='border-4 border-secondary-content text-accent rounded-full w-14 h-14 md:w-20 md:h-20 flex justify-center items-center shadow-sm shadow-accent'
             >
@@ -64,8 +67,8 @@ const delay1 = 2.5;
   </section>
 </div>
 
-<style define:vars={{ delay1 }}>
-  [data-theme="gs-dark"] .bg-grid::before {
+<style>
+  [data-theme="dark"] .bg-grid::before {
     --gradient-base: oklch(var(--p));
   }
 
