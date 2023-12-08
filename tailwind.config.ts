@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 module.exports = {
-	darkMode: ['class', '[data-theme="gs-dark"]'],
+	darkMode: ['class', '[data-theme="dark"]'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		screens: {
@@ -69,7 +69,7 @@ module.exports = {
 	 daisyui: {
 		/** @link: https://daisyui.com/docs/config/ */
 		themes: [{
-			'gs-light': {
+			'light': {
 				'primary': '#E3FADB',
 				'primary-focus': '#d3e7c6',
 				'primary-content': '#212121',
@@ -91,7 +91,7 @@ module.exports = {
 				'warning': '#FFC107',
 				'error': '#F44336',
 			},
-			'gs-dark': {
+			'dark': {
 				'primary': '#34445F',
 				'primary-focus': '#2E4053',
 				'primary-content': '#F8F9FA',
@@ -114,7 +114,7 @@ module.exports = {
 				'error': '#E57373',
 			},
 		}],
-		darkTheme: 'gs-dark',
+		darkTheme: 'dark',
  		base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes

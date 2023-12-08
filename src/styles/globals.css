@@ -8,25 +8,18 @@
   :root {
     --pf: 90.43 0.049 132.99; /* #D3E7C6 */
     --sf: 74.11 0.073 250.73; /* #89AFD8 */
-    --af: 70.77 0.119 143.88;  /* #71B470 */
-    --nf: 38.46 0.023 61.85; /* #4D4137 */
+    --af: 70.77 0.119 143.88; /* #71B470 */
+    --nf: 38.46 0.023 61.85;  /* #4D4137 */
 
     --animation-delay: 200ms;
     --animation-duration: 600ms;
   }
 
   :root:has([data-theme='dark']) {
-    --pf: 36.45 0.04 250.32; /* #2E4053 */
-    --sf: 60.2 0.094 239.81; /* #4788B3 */
+    --pf: 36.45 0.04 250.32;  /* #2E4053 */
+    --sf: 60.2 0.094 239.81;  /* #4788B3 */
     --af: 42.55 0.055 159.85; /* #325844 */
     --nf: 98.16 0.002 247.84; /* #F8F9FA */
-  }
-
-  * {
-    transition: background-color var(--animation-duration) ease-in-out,
-      color var(--animation-duration) ease-in-out,
-      border-color var(--animation-duration) ease-in-out,
-      box-shadow var(--animation-duration) ease-in-out;
   }
 
   html {
@@ -37,6 +30,13 @@
   a:is(:hover, :focus, :focus-within) {
     background-color: oklch(var(--a));
     border-radius: 0.25rem;
+  }
+
+  * {
+    transition: background-color var(--animation-duration) ease-in-out,
+      color var(--animation-duration) ease-in-out,
+      border-color var(--animation-duration) ease-in-out,
+      box-shadow var(--animation-duration) ease-in-out;
   }
 
   code {
@@ -51,38 +51,25 @@
       monospace;
   }
 
-
   section {
     min-height: 80dvh;
-  }
-
-  section::before {
-    content: '';
-    display: block;
-    padding-top: 4rem;
-    border: 3px solid oklch(var(--af));
-  }
-
-  section::after {
-    content: '';
-    display: block;
-    padding-bottom: 4rem;
-    border: 3px solid oklch(var(--pf));
+    margin: 12rem 0;
   }
 
   .initial {
     --gs-delay: 0.25s;
     --gs-duration: 1.25s;
     animation: slideUpAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0);
+    animation-delay: var(--gs-delay, 0s);
     animation-timeline: view();
     animation-range: entry 50% cover 50%;
   }
+
   .secondary {
     --gs-delay: 0.25s;
     --gs-duration: 1.25s;
     animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0) s;
+    animation-delay: var(--gs-delay, 0s);
     animation-timeline: view();
     animation-range: entry 50% cover 50%;
   }
