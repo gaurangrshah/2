@@ -1,0 +1,85 @@
+---
+import { AstroSeo } from "@astrolib/seo";
+import type { Props as AstroSeoProps } from "@astrolib/seo";
+import config from "../../config.json";
+import { adaptOpenGraphImages } from "../../utils/images";
+import type { MetaData } from "../../types/metadata";
+
+export interface Props extends MetaData {
+  dontUseTitleTemplate?: boolean;
+}
+
+export const getCanonical = (path = ""): string | URL => {
+  const url = String(new URL(path, config.site.site_url));
+  if (config.site.trailingSlash == false && path && url.endsWith("/")) {
+    return url.slice(0, -1);
+  } else if (config.site.trailingSlash == true && path && !url.endsWith("/")) {
+    return url + "/";
+  }
+  return url;
+};
+const {
+  title,
+  ignoreTitleTemplate = false,
+  canonical = String(getCanonical(String(Astro.url.pathname))),
+  robots = {},
+  description,
+  openGraph = {},
+  twitter = {},
+} = Astro.props;
+
+const seoProps: AstroSeoProps = Object.assign(
+  {},
+  {
+    title: "",
+    titleTemplate: "%s",
+    canonical: canonical,
+    noindex: true,
+    nofollow: true,
+    description: undefined,
+    openGraph: {
+      url: canonical,
+      site_name: config.site?.name,
+      images: [],
+      locale: config.i18n?.language || "en",
+      type: "website",
+    },
+    twitter: {
+      cardType: openGraph?.images?.length ? "summary_large_image" : "summary",
+    },
+  },
+  {
+    title: config.metadata?.title?.default,
+    titleTemplate: config.metadata?.title?.template,
+    noindex:
+      typeof config.metadata?.robots?.index !== "undefined"
+        ? !config.metadata.robots.index
+        : undefined,
+    nofollow:
+      typeof config.metadata?.robots?.follow !== "undefined"
+        ? !config.metadata.robots.follow
+        : undefined,
+    description: config.metadata?.description,
+    openGraph: config.metadata?.openGraph,
+    twitter: config.metadata?.twitter,
+  },
+  {
+    title: title,
+    titleTemplate: ignoreTitleTemplate ? "%s" : undefined,
+    canonical: canonical,
+    noindex: typeof robots?.index !== "undefined" ? !robots.index : undefined,
+    nofollow:
+      typeof robots?.follow !== "undefined" ? !robots.follow : undefined,
+    description: description,
+    openGraph: { url: canonical, ...openGraph },
+    twitter: twitter,
+  }
+);
+---
+
+<AstroSeo
+  {...{
+    ...seoProps,
+    openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site),
+  }}
+/>

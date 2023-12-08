@@ -1,17 +1,17 @@
 {
   "site": {
-    "name": "My Site",
-    "site_url":  "https://astro.build",
+    "name": "G.Shah Dev",
+    "site_url":  "https://gshah.dev",
     "base_path": "/",
     "trailingSlash": false,
     "googleSiteVerification": "google-site-verification-code"
   },
   "metadata": {
     "title": {
-      "default": "My Site",
-      "template": "%s | My Site"
+      "default": "G.Shah Dev",
+      "template": "%s | G.Shah Dev"
     },
-    "description": "My Site description",
+    "description": "Full-stack developer, designer, and maker.",
     "robots": {
       "index": true,
       "follow": true
@@ -23,12 +23,12 @@
         "url": "~/assets/images/default-og-image.jpg",
         "width": 1200,
         "height": 628
-      },
-      "twitter": {
-        "handle": "@astrodotbuild",
-        "site": "@astrodotbuild",
-        "cardType": "summary_large_image"
       }
+    },
+    "twitter": {
+      "handle": "@sohamasmi",
+      "site": "@sohamasmi",
+      "cardType": "summary_large_image"
     }
   },
   "i18n": {
@@ -63,21 +63,21 @@
       "default": {
         "fonts": {
           "sans": "Inter, sans-serif",
-          "serif": "var(--ph-font-sans",
-          "heading": "var(--ph-font-sans"
+          "serif": "var(--font-sans",
+          "heading": "var(--font-sans"
         },
         "colors": {
-          "default": "rgb(16 16 16)",
-          "heading": "rgb(0,0,0)",
-          "muted": "rgb(40 40 40)",
-          "bgPage": "rgb(255,255,255)",
-          "primary": "rgb(0 124 220)",
-          "secondary": "rgb(30 58 138)",
-          "accent": "rgb(109 40 217)",
-          "info": "rgb(119 182 234)",
-          "success": "rgb(54 211 153)",
-          "warning": "rgb(251 189 35)",
-          "error": "rgb(248 114 114)",
+          "default": "#FFFFFF",
+          "heading": "#212121",
+          "muted": "#574B40",
+          "bgPage": "#FFFFFF",
+          "primary": "#E3FADB",
+          "secondary": "#97BBFA",
+          "accent": "#81C784",
+          "info": "#1496BF",
+          "success": "#4CAF50",
+          "warning": "#FFC107",
+          "error": "#F44336",
           "link": "var(--ph-color-primary)",
           "linkActive": "var(--ph-color-link)"
         }
@@ -85,17 +85,17 @@
       "dark": {
         "fonts": {},
         "colors": {
-          "default": "rgb(247 248 248)",
-          "heading": "rgb(247 248 248)",
-          "muted": "rgb(200 188 208)",
-          "bgPage": "rgb(3 6 32)",
-          "primary": "rgb(29 78 216)",
-          "secondary": "rgb(30 58 138)",
-          "accent": "rgb(135 77 267)",
-          "info": "rgb(59 191 248)",
-          "success": "rgb(54 211 153)",
-          "warning": "rgb(251 189 35)",
-          "error": "rgb(248 114 114)",
+          "default": "#070340",
+          "heading": "#F8F9FA",
+          "muted": "#FFFFFF",
+          "bgPage": "#070340",
+          "primary": "#34445F",
+          "secondary": "#4788B3",
+          "accent": "#376B4F",
+          "info": "#62C9FF",
+          "success": "#8BC34A",
+          "warning": "#FFEB3B",
+          "error": "#E57373",
           "link": "var(--ph-color-primary)",
           "linkActive": "var(--ph-color-link)"}
       }
