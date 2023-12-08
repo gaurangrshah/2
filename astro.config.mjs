@@ -20,12 +20,12 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false // allows base styles to be overridden
-    })
+    }),
     // icon({
     //   include: {
     //   },
     // }),
-    , sitemap({
+    sitemap({
         changefreq: 'weekly',
         priority: 0.7,
         lastmod: new Date('2022-02-24'),
