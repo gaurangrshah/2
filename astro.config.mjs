@@ -8,6 +8,7 @@ import { analytics, site } from "./src/config.json";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import tasks from './src/utils/tasks';
 
 
 // https://astro.build/config
@@ -17,14 +18,21 @@ export default defineConfig({
   base: site.base_path,
   trailingSlash: site.trailingSlash ? 'always' : 'never',
   output: 'hybrid',
-  integrations: [tailwind({
-    applyBaseStyles: false // allows base styles to be overridden
-  })
-  // icon({
-  //   include: {
-  //   },
-  // }),
-  , sitemap()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false // allows base styles to be overridden
+    })
+    // icon({
+    //   include: {
+    //   },
+    // }),
+    , sitemap({
+        changefreq: 'weekly',
+        priority: 0.7,
+        lastmod: new Date('2022-02-24'),
+    }),
+    tasks()
+  ],
   vite: {
     resolve: {
       alias: {
