@@ -1,6 +1,6 @@
 ---
-import config from "../../config.json"
-export const trim = (str = '', ch?: string) => {
+import config from "../../config.json";
+export const trim = (str = "", ch?: string) => {
   let start = 0,
     end = str.length || 0;
   while (start < end && str[start] === ch) ++start;
@@ -8,20 +8,25 @@ export const trim = (str = '', ch?: string) => {
   return start > 0 || end < str.length ? str.substring(start, end) : str;
 };
 
-export const trimSlash = (s: string) => trim(trim(s, '/'));
+export const trimSlash = (s: string) => trim(trim(s, "/"));
 
-const BASE_PATHNAME = config.site.base_path || '/';
+const BASE_PATHNAME = config.site.base_path || "/";
 
 export const getAsset = (path: string): string =>
-  '/' +
+  "/" +
   [BASE_PATHNAME, path]
     .map((el) => trimSlash(el))
     .filter((el) => !!el)
-    .join('/');
-
+    .join("/");
 ---
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+<link rel='manifest' href='/site.webmanifest' />
+<link rel='mask-icon' href='/safari-pinned-tab.svg' color='#e3fadb' />
+<meta name='msapplication-TileColor' content='#2b5797' />
+<meta name='theme-color' content='#e3fadb' />
+<link rel='sitemap' href={getAsset("/sitemap-index.xml")} />
