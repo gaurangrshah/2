@@ -2,27 +2,6 @@
 	"version": 3,
 	"routes": [
 		{
-			"src": "/\\/check/",
-			"headers": {
-				"Location": "/check"
-			},
-			"status": 308
-		},
-		{
-			"src": "/\\/typo/",
-			"headers": {
-				"Location": "/typo"
-			},
-			"status": 308
-		},
-		{
-			"src": "/\\/arg/",
-			"headers": {
-				"Location": "/arg"
-			},
-			"status": 308
-		},
-		{
 			"src": "^/_astro/(.*)$",
 			"headers": {
 				"cache-control": "public, max-age=31536000, immutable"
