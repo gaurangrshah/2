@@ -22,11 +22,6 @@
     --nf: 98.16 0.002 247.84; /* #F8F9FA */
   }
 
-  html {
-    font-family: system-ui, sans-serif;
-    position: relative;
-  }
-
   a:is(:hover, :focus, :focus-within) {
     background-color: oklch(var(--a));
     border-radius: 0.25rem;
@@ -37,18 +32,6 @@
       color var(--animation-duration) ease-in-out,
       border-color var(--animation-duration) ease-in-out,
       box-shadow var(--animation-duration) ease-in-out;
-  }
-
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
   }
 
   section {

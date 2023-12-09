@@ -17,49 +17,48 @@ const expertise = "Web & Mobile UI";
       >
         Gaurang Shah
       </h2>
-      <span class='text-lg text-accent font-bold initial'
-        >Full Stack Developer</span
-      >
-      <div
-        class='w-full2020
+      <span class='text-lg text-accent font-bold initial'></span>
+       Full Stack Developer
+    </div>
+    <div
+      class='w-full2020
           flex
           justify-between
           gap-6
           p-12'
-      >
-        <div class='w-1/4 max-w-1/4 my-auto text-left'>
-          <h5 class='h5-category font-bold text-base-content initial'>
-            Expertise:
-          </h5>
-          <p
-            class='p-detail whitespace-nowrap text-accent animate-slideRightAndFade secondary'
+    >
+      <div class='w-1/4 max-w-1/4 my-auto text-left'>
+        <h5 class='h5-category font-bold text-base-content initial'>
+          Expertise:
+        </h5>
+        <p
+          class='p-detail whitespace-nowrap text-accent animate-slideRightAndFade secondary'
+        >
+          {expertise}
+        </p>
+      </div>
+      <div class='flex flex-col items-center w-full initial'>
+        <Image src={avatar} alt='' />
+      </div>
+      <div class='flex flex-col px-3 my-auto'>
+        <strong class='h5-category text-left pr-2 text-base-content initial'>
+          Experience:
+        </strong>
+        <div class='flex gap-x-3 animate-slideLeftAndFade secondary'>
+          <div
+            class='border-4 border-secondary-content text-accent rounded-full w-14 h-14 md:w-20 md:h-20 flex justify-center items-center shadow-sm shadow-accent'
           >
-            {expertise}
-          </p>
-        </div>
-        <div class='flex flex-col items-center w-full initial'>
-          <Image src={avatar} alt='' />
-        </div>
-        <div class='flex flex-col px-3 my-auto'>
-          <strong class='h5-category text-left pr-2 text-base-content initial'
-            >Experience:</strong
-          >
-          <div class='flex gap-x-3 animate-slideLeftAndFade secondary'>
-            <div
-              class='border-4 border-secondary-content text-accent rounded-full w-14 h-14 md:w-20 md:h-20 flex justify-center items-center shadow-sm shadow-accent'
+            <!-- @see: ../styles/global.css-->
+            <p
+              id='yrs-working-text'
+              class='h5-num font-bold'
+              data-number={yrsWorking}
             >
-              <!-- @see: ../styles/global.css-->
-              <p
-                id='yrs-working-text'
-                class='h5-num font-bold'
-                data-number={yrsWorking}
-              >
-              </p>
-            </div>
-            <div class='flex items-center'>
-              <p class='h5-category inline -mt-4 text-base-content'>+</p>
-              <p class='h5-category inline -mt-4 text-base-content'>yrs</p>
-            </div>
+            </p>
+          </div>
+          <div class='flex items-center'>
+            <p class='h5-category inline -mt-4 text-base-content'>+</p>
+            <p class='h5-category inline -mt-4 text-base-content'>yrs</p>
           </div>
         </div>
       </div>
