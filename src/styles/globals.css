@@ -45,7 +45,7 @@
     animation: slideUpAndFade var(--gs-duration) ease-in-out both;
     animation-delay: var(--gs-delay, 0s);
     animation-timeline: view();
-    animation-range: entry 50% cover 50%;
+    animation-range: entry 25% cover 50%;
   }
 
   .secondary {
@@ -54,7 +54,26 @@
     animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
     animation-delay: var(--gs-delay, 0s);
     animation-timeline: view();
-    animation-range: entry 50% cover 50%;
+    animation-range: entry 25% cover 50%;
+  }
+
+  .sticky-section {
+    position: sticky;
+    top: 4rem;
+    height: 96vh;
+  }
+
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100dvh;
+    /* scroll-padding-top: 4rem; */
+  }
+
+  .scroll-container .scroll-child {
+    scroll-snap-align: start;
+    height: 100dvh;
   }
 
   /* Golden Ratio Scale from: */
