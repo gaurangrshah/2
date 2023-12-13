@@ -15,7 +15,7 @@
 *::before,
 *::after {
   /* border-color: var(--neutral-rgb); */
-  box-sizing: 'border-box';
+  box-sizing: 'inherit';
   word-wrap: 'break-word';
 }
 

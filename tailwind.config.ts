@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 module.exports = {
 	darkMode: ['class', '[data-theme="dark"]'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -16,7 +18,8 @@ module.exports = {
 				separator: 'url(\'data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20418%27%20fill%3D%27none%27%3E%3Cpath%20fill%3D%22currentColor%22%20class%3D%22separator%22%20d%3D%27M0%200s379%20115.31%20720%20115.31S1440%200%201440%200v209H0V0ZM1440%20418s-379-115.31-720-115.31S0418%200%20418V209h1440v209Z%27%3E%3C%2Fpath%3E%3C%2Fsvg%3E\')',
 			},
 			fontFamily:  {
-				'sans': ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+				'sans': ['Inter', ...defaultTheme.fontFamily.sans],
+				'geist': ['Geist', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				'primary-focus': 'oklch(var(--pf) / <alpha-value>)',
