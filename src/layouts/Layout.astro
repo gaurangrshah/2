@@ -4,6 +4,7 @@ import CommonMeta from "../components/common/CommonMeta.astro";
 import Metadata from "../components/common/Metadata.astro";
 import Themes from "astro-themes";
 import ThemeIcon from "../components/ThemeIcon.astro";
+import SocialBars from "../components/common/SocialBars.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/globals.css";
 
@@ -30,6 +31,7 @@ const { metadata = {} } = Astro.props;
   <body class='font-geist'>
     <Navbar />
     <ThemeIcon />
+    <SocialBars />
     <slot />
   </body>
 </html>

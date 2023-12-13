@@ -1,0 +1,109 @@
+---
+import Icon from "astro-icon";
+import ThreadsIcon from "./icons/ThreadsIcon.astro";
+import HashnodeIcon from "./icons/HashnodeIcon.astro";
+import DevtoIcon from "./icons/DevtoIcon.astro";
+---
+
+<div
+  class='vertical-social-container relative'
+  style='--social-right:auto; --social-left:40px;'
+>
+  <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
+    <div class='flex flex-col'>
+      <a
+        class='vertical-social'
+        href='https://github.com/gaurangrshah'
+        target='_blank'
+      >
+        <Icon name='ph:github-logo-bold' />
+      </a>
+      <a
+        class='vertical-social'
+        href='https://www.threads.net/@soham_asmi'
+        target='_blank'
+      >
+        <ThreadsIcon />
+      </a>
+      <a
+        class='vertical-social'
+        href='https://www.linkedin.com/in/gshah2020/'
+        target='_blank'
+      >
+        <Icon name='ph:linkedin-logo-bold' />
+      </a>
+      <a
+        class='vertical-social'
+        href='https://blog.gshahdev.com/'
+        target='_blank'
+      >
+        <HashnodeIcon />
+      </a>
+      <a class='vertical-social' href='https://dev.to/gsdev' target='_blank'>
+        <DevtoIcon />
+      </a>
+    </div>
+  </div>
+</div>
+
+<div
+  class='vertical-social-container relative'
+  style='--social-right:40px; --social-left:auto;'
+>
+  <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
+    <a class='vertical-social text-xs' href='mailto:gaurang.r.shah@gmail.com'>
+      gaurang.r.shah@gmail.com
+    </a>
+  </div>
+</div>
+
+<style>
+  .vertical-social-container {
+    --social-right: 40px;
+    --social-left: auto;
+    position: fixed;
+    bottom: 0;
+    left: var(--social-left);
+    right: var(--social-right);
+    width: 40px;
+    /* pointer-events: none; */
+    z-index: 10;
+  }
+
+  .vertical-social-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    --webkit-box-align: center;
+    align-items: center;
+  }
+
+  .vertical-social-wrapper::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 90px;
+    background-color: oklch(var(--a));
+    margin: 10px auto;
+  }
+
+  .vertical-social {
+    --write-mode: vertical-rl;
+    writing-mode: var(--write-mode);
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    display: block;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    position: relative;
+  }
+
+  [astro-icon] {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
