@@ -6,40 +6,44 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 ---
 
 <div
-  class='vertical-social-container relative'
+  class='vertical-social-container relative text-secondar'
   style='--social-right:auto; --social-left:40px;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
     <div class='flex flex-col'>
       <a
-        class='vertical-social'
+        class='unset vertical-social'
         href='https://github.com/gaurangrshah'
         target='_blank'
       >
         <Icon name='ph:github-logo-bold' />
       </a>
       <a
-        class='vertical-social'
+        class='unset vertical-social'
         href='https://www.threads.net/@soham_asmi'
         target='_blank'
       >
         <ThreadsIcon />
       </a>
       <a
-        class='vertical-social'
+        class='unset vertical-social'
         href='https://www.linkedin.com/in/gshah2020/'
         target='_blank'
       >
         <Icon name='ph:linkedin-logo-bold' />
       </a>
       <a
-        class='vertical-social'
+        class='unset vertical-social'
         href='https://blog.gshahdev.com/'
         target='_blank'
       >
         <HashnodeIcon />
       </a>
-      <a class='vertical-social' href='https://dev.to/gsdev' target='_blank'>
+      <a
+        class='unset vertical-social'
+        href='https://dev.to/gsdev'
+        target='_blank'
+      >
         <DevtoIcon />
       </a>
     </div>
@@ -51,7 +55,10 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
   style='--social-right:40px; --social-left:auto;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
-    <a class='vertical-social text-xs' href='mailto:gaurang.r.shah@gmail.com'>
+    <a
+      class='unset vertical-social text-xs text-current'
+      href='mailto:gaurang.r.shah@gmail.com'
+    >
       gaurang.r.shah@gmail.com
     </a>
   </div>
@@ -88,6 +95,7 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
   }
 
   .vertical-social {
+    --animation-duration: 0.35s;
     --write-mode: vertical-rl;
     writing-mode: var(--write-mode);
     margin: 10px auto;
@@ -95,15 +103,24 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
     line-height: 1.5;
     letter-spacing: 0.1em;
     display: block;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-property: color, transform;
     display: block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
     position: relative;
+    color: oklch(var(--s));
+  }
+
+  .vertical-social:hover {
+    transform: translateY(-5px);
+    color: oklch(var(--a));
   }
 
   [astro-icon] {
     width: 1.5rem;
     height: 1.5rem;
+    fill: currentColor;
+    stroke: currentColor;
   }
 </style>
