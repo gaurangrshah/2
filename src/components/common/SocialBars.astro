@@ -6,7 +6,7 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 ---
 
 <div
-  class='vertical-social-container relative text-secondar'
+  class='vertical-social-container hidden md:block text-secondar'
   style='--social-right:auto; --social-left:40px;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
@@ -51,7 +51,7 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 </div>
 
 <div
-  class='vertical-social-container relative'
+  class='vertical-social-container hidden md:block'
   style='--social-right:40px; --social-left:auto;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
@@ -118,9 +118,16 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
   }
 
   [astro-icon] {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     fill: currentColor;
     stroke: currentColor;
+  }
+
+  @media (min-width: 768px) {
+    [astro-icon] {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 </style>
