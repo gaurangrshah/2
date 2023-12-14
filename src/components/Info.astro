@@ -1,7 +1,7 @@
 ---
 import Timeline from "../components/Timeline.astro";
 import AboutCard from "./AboutCard.astro";
-
+import Commodore64 from "/assets/images/commodore-64.svg";
 const skills = {
   about: [
     {
@@ -39,7 +39,7 @@ const skills = {
 };
 ---
 
-<section id='about' class=''>
+<section id='about' class='relative'>
   <div class='w-full max-w-6xl flex flex-col md:flex-row mx-auto'>
     <div
       id='info'
@@ -55,13 +55,18 @@ const skills = {
           class='bg-base-200/30 p-6 rounded-md leading-relaxed text-secondary-content initial'
           style='--gs-delay:0.5s'
         >
-          Hey there! I'm Gaurang, a full stack developer with over 12 years of
-          experience in the design, development and consulting industries. At my
-          core I am a problem solver and I love to learn new things. I am
-          extremely passionate about technology and always looking for new ways
-          to use it to bring people closer and make true connections. I am truly
-          optimistic about the future because of my experience with technology
-          and the people I've had the honor of working with thoughout my career.
+          From hand-crafting pixel-perfect UIs to building robust full-stack
+          solutions, I bridge the gap between code and creativity. Mesmerized by
+          the blinking magic of my first Commodore 64, I've been immersed in
+          technology ever since. Today, I leverage my skills, experience, and
+          insatiable appetite for learning to help businesses and organizations
+          achieve real results. Whether you're seeking an intuitive website that
+          boosts conversions or a full-stack developer who champions
+          accessibility...
+
+          <span class='font-semibold'>
+            Hi, I'm Gaurang and I'm excited to get to work!
+          </span>
         </p>
 
         <ul class='w-full flex flex-wrap gap-3 my-9'>
@@ -91,60 +96,72 @@ const skills = {
           class='bg-base-200/30 p-6 rounded-md leading-relaxed pb-6 text-secondary-content initial'
           style='--gs-delay:0.5s;'
         >
-          I initially got into technology because of the amazement I feel
-          everyday as I watch the world around me as it is transformed by
-          ordinary people just like me. With each new advancement, new doors are
-          opened and new opportunities are created. I am excited to see what the
-          future holds and I am eager to be a part of it.
+          The internet is a canvas, and technology is our brush. Every line of
+          code, every click, every connection is a stroke of progress. I'm
+          excited to see what we can create together, pixel by pixel, line by
+          line.
+        </p>
+        <p class='unset text-sm text-right leading-loose mr-3'>
+          <a href='https://bard.google.com/' target='_blank'>
+            - Generated via: Google's Bard A.I. Engine
+          </a>
         </p>
         <Timeline />
       </div>
     </div>
 
-    <ul
-      class='menu bg-base-200/30 w-56 rounded-box hidden md:block max-h-24 secondary'
-    >
-      <li class='secondary' style='--gs-delay:1s;'>
-        <button data-section='about' disabled>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-5 w-5'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+    <div class='hidden md:flex flex-col gap-y-24'>
+      <ul
+        class='menu bg-base-200/30 w-56 rounded-box max-h-24 secondary -ml-16'
+      >
+        <li class='secondary' style='--gs-delay:1s;'>
+          <button data-section='about' disabled>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
             >
-            </path>
-          </svg>
-           About
-        </button>
-      </li>
-      <li class='secondary'>
-        <button data-section='exp' style='--gs-delay:1.5s;'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-5 w-5'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+              >
+              </path>
+            </svg>
+             About
+          </button>
+        </li>
+        <li class='secondary'>
+          <button data-section='exp' style='--gs-delay:1.5s;'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
             >
-            </path>
-          </svg>
-           Experience
-        </button>
-      </li>
-    </ul>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+              >
+              </path>
+            </svg>
+             Experience
+          </button>
+        </li>
+      </ul>
+      <img
+        src={"/assets/commodore-64.svg"}
+        alt='Commodore 64'
+        width='250'
+        class='-ml-16 opacity-70 initial'
+      />
+    </div>
   </div>
 </section>
 
@@ -205,5 +222,9 @@ const skills = {
   [astro-icon] {
     width: 2rem;
     height: 2rem;
+  }
+
+  .trans {
+    opacity: 50%;
   }
 </style>
