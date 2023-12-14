@@ -3,7 +3,7 @@
     "name": "G.Shah Dev",
     "site_url":  "https://gshah.dev",
     "base_path": "/",
-    "trailingSlash": false,
+    "trailingSlash": true,
     "googleSiteVerification": "google-site-verification-code"
   },
   "metadata": {
