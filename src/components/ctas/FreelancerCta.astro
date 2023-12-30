@@ -1,0 +1,30 @@
+<h4 class='text-primary-content/60 text-center initial animate-fadeIn'>
+  Is your <span class='unset text-accent font-bold'>website</span> the <span
+    class='unset relative highlight'
+  >
+    sales engine
+  </span>
+  <br />
+
+   that your business needs ?
+</h4>
+
+<style>
+  .highlight:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 103%;
+    height: calc(1em + 0.5rem);
+    background-color: oklch(var(--a));
+    z-index: -1;
+    font-weight: 900;
+    border-radius: 0.25rem;
+    margin-left: -0.2rem;
+  }
+  .initial {
+    animation: slideUpAndFade ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+</style>

@@ -1,0 +1,52 @@
+<div
+  class='relative w-full my-24 initial animate-fadeIn bg-base-200 p-3 backdrop-filter backdrop-blur-lg'
+>
+  <div class='relative w-full max-w-lg mx-auto opacity-30 my-12'>
+    <div
+      class='absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-blob'
+    >
+    </div>
+    <div
+      class='absolute top-0 -right-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000'
+    >
+    </div>
+    <div
+      class='absolute -bottom-12 left-20 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000'
+    >
+    </div>
+  </div>
+  <h4 class='text-primary-content/80 text-center'>
+    Are you leaving <span
+      class='unset relative highlight font-semibold text-white'
+    >
+      opportunity
+    </span><br /><span class='unset underline font-bold text-secondary'>
+      on the table?
+    </span>
+  </h4>
+  <p class='unset text-3xl leading-loose mt-6 text-primary'>
+    <a class='unset font-semibold text-base-content' href='#contact'>
+      Let's turn your business challenges into strategic advantages.
+    </a>
+  </p>
+</div>
+
+<style>
+  .highlight:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 103%;
+    height: calc(1em + 0.5rem);
+    background-color: oklch(var(--a));
+    z-index: -1;
+    font-weight: 900;
+    border-radius: 0.25rem;
+    margin-left: -0.2rem;
+  }
+  .initial {
+    animation: slideUpAndFade ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+</style>
