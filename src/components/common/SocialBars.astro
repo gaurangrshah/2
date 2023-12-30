@@ -7,7 +7,7 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 
 <div
   class='vertical-social-container hidden md:block text-secondar'
-  style='--social-right:auto; --social-left:40px;'
+  style='--social-right:auto; --social-left:1.1rem;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
     <div class='flex flex-col'>
@@ -52,7 +52,7 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 
 <div
   class='vertical-social-container hidden md:block'
-  style='--social-right:40px; --social-left:auto;'
+  style='--social-right:0.7rem; --social-left:auto;'
 >
   <div class='vertical-social-wrapper' style='--write-mode:vertical-rl'>
     <a
@@ -66,14 +66,13 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
 
 <style>
   .vertical-social-container {
-    --social-right: 40px;
     --social-left: auto;
+    --social-right: 40px;
     position: fixed;
     bottom: 0;
     left: var(--social-left);
     right: var(--social-right);
     width: 40px;
-    /* pointer-events: none; */
     z-index: 10;
   }
 
@@ -89,9 +88,9 @@ import DevtoIcon from "./icons/DevtoIcon.astro";
     content: "";
     display: inline-block;
     width: 1px;
-    height: 90px;
+    height: 140px;
     background-color: oklch(var(--a));
-    margin: 10px auto;
+    margin: 25px auto;
   }
 
   .vertical-social {

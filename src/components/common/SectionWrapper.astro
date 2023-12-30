@@ -1,0 +1,36 @@
+---
+interface SectionWrapperProps {
+  id: string;
+  className?: string;
+}
+
+const { id, className } = Astro.props;
+---
+
+<div
+  class='flex flex-col justy-center items-center my-auto w-full max-w-4xl mx-auto'
+>
+  <section id={id} class:list={["relative", className]}>
+    <slot />
+  </section>
+</div>
+
+<style>
+  section {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  section::before {
+    content: "";
+    display: block;
+    height: 4rem;
+  }
+
+  section::after {
+    content: "";
+    display: block;
+    height: 4rem;
+  }
+</style>

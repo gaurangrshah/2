@@ -4,12 +4,12 @@
     id='theme-check'
     type='checkbox'
     class='theme-controller hidden'
-    value='light'
+    value='wireframe'
   />
 
   <!-- sun icon -->
   <svg
-    class='swap-off text-accent w-7 h-7'
+    class='swap-off text-base-content w-7 h-7'
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 24 24'
   >
@@ -37,7 +37,7 @@
 <style>
   #theme-toggle {
     position: fixed;
-    bottom: 6rem;
+    bottom: 11rem;
     right: 1rem;
     z-index: 100;
     color: white;
@@ -55,9 +55,9 @@
 
   themeToggle?.addEventListener("click", () => {
     if (themeCheck.checked) {
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", "wireframe");
     } else {
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "black");
     }
   });
 </script>
