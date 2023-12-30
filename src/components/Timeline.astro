@@ -9,32 +9,43 @@ interface WorkRecord {
 
 const workHistory: WorkRecord[] = [
   {
+    company: "G.Shah Development",
+    position: "Technology Consultant",
+    date: "2016 - Present",
+    description:
+      "Provided custom bespoke technology solutions for clients to meet business goals.",
+  },
+  {
     company: "Hashnode",
-    position: "Software Engineer",
-    date: "2022 - 2023",
-    description: "Working on the Hashnode platform",
+    position: "Senior Software Engineer",
+    date: "2021 - 2022",
+    description:
+      "Blogging platform optimized for software developers and technical writers.",
   },
   {
-    company: "G.Shah Development",
-    position: "Senior Consultant",
-    date: "2020 - Present",
-    description: "Working on various projects for clients",
+    company: "Think Mechanic",
+    position: "Front-end Developer",
+    date: "2019 -2020",
+    description: "Custom application development for enterprise clients.",
   },
   {
-    company: "G.Shah Development",
-    position: "Senior Consultant",
-    date: "2020 - Present",
-    description: "Working on various projects for clients",
+    company: "Modus Relations",
+    position: "Marketing Manager",
+    date: "2008-2014",
+    description:
+      "Boutique marketing agency specializing in branding and digital marketing.",
   },
 ];
 ---
 
 <!-- https://flowbite.com/docs/components/timeline/ -->
-<div class='w-full max-w-3xl mx-auto mt-12'>
-  <ol class='items-center sm:flex'>
+<div class='w-full mx-auto mt-12'>
+  <ol
+    class='relative w-full md:max-w-xl flex flex-col md:flex-row overflow-x-scroll'
+  >
     {
       workHistory.map((job) => (
-        <li class='relative mb-6 sm:mb-0'>
+        <li class='relative md:min-w-[300px] p-3 mb-6 md:mb-0 border md:border-0 border-base-content/40 rounded md:sticky md:left-0 bg-base-100'>
           <div class='flex items-center'>
             <div class='flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0'>
               <Icon name='ph:calendar-blank-thin' />
@@ -45,10 +56,10 @@ const workHistory: WorkRecord[] = [
             <time class='block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
               {job.date}
             </time>
-            <h3 class='text-lg font-semibold text-gray-900 dark:text-white'>
+            <h3 class='unset text-lg font-semibold text-gray-900 dark:text-white'>
               {job.company}
             </h3>
-            <small class='text-sm'>{job.position}</small>
+            <small class='text-sm italic'>{job.position}</small>
             <p class='text-base font-normal text-gray-500 dark:text-gray-400'>
               {job.description}
             </p>

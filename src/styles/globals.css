@@ -10,62 +10,18 @@
   font-weight: 100 1000;
 }
 
-@layer base {
-
-  :root {
-    --pf: 90.43 0.049 132.99; /* #D3E7C6 */
-    --sf: 74.11 0.073 250.73; /* #89AFD8 */
-    --af: 70.77 0.119 143.88; /* #71B470 */
-    --nf: 38.46 0.023 61.85;  /* #4D4137 */
-
-    --animation-delay: 200ms;
-    --animation-duration: 600ms;
-
-    --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-
-  }
-
-  :root:has([data-theme='dark']) {
-    --pf: 36.45 0.04 250.32;  /* #2E4053 */
-    --sf: 60.2 0.094 239.81;  /* #4788B3 */
-    --af: 42.55 0.055 159.85; /* #325844 */
-    --nf: 98.16 0.002 247.84; /* #F8F9FA */
-  }
-
-  a:not(.unset):is(:hover, :focus, :focus-within) {
-    background-color: oklch(var(--a));
-    border-radius: 0.25rem;
-  }
-
-  * {
-    transition: background-color var(--animation-duration) ease-in-out,
-      color var(--animation-duration) ease-in-out,
-      border-color var(--animation-duration) ease-in-out,
-      box-shadow var(--animation-duration) ease-in-out;
-  }
-
-  section {
-    min-height: 80dvh;
-    margin: 12rem 0;
-  }
-
+@layer utilities {
   .initial {
-    --gs-delay: 0.25s;
-    --gs-duration: 1.25s;
-    animation: slideUpAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0s);
+    animation: slideUpAndFade forwards;
     animation-timeline: view();
-    animation-range: entry 25% cover 50%;
+    animation-range: entry 0% cover 40%;
 
   }
 
   .secondary {
-    --gs-delay: 0.25s;
-    --gs-duration: 1.25s;
-    animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0s);
+    animation: slideLeftAndFade forwards;
     animation-timeline: view();
-    animation-range: entry 25% cover 50%;
+    animation-range: entry 0% cover 40%;
   }
 
   .sticky-section {
@@ -87,28 +43,67 @@
     height: 100dvh;
   }
 
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@layer base {
+
+  :root {
+    --animation-delay: 200ms;
+    --animation-duration: 600ms;
+
+    --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  }
+
+  /* :root:has([data-theme='dark']) {} */
+
+  a:not(.unset):is(:hover, :focus, :focus-within) {
+    background-color: oklch(var(--a));
+    border-radius: 0.25rem;
+  }
+
+  * {
+    transition: background-color var(--animation-duration) ease-in-out,
+      color var(--animation-duration) ease-in-out,
+      border-color var(--animation-duration) ease-in-out,
+      box-shadow var(--animation-duration) ease-in-out;
+  }
+
+  section {
+    min-height: 80dvh;
+    margin: 6rem 0;
+    scroll-margin-top:6rem;
+  }
+
+
+
   /* Golden Ratio Scale from: */
   /* https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.618&maxFontSize=19&maxWidth=1280&maxRatio=1.618&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280 */
 
-  h1 {
+  h1:not(.unset) {
     font-size: clamp(4.77rem, 3vw, 8.88rem);
   }
-  h2 {
+  h2:not(.unset) {
     font-size: clamp(3.81rem, 2vw, 6.66rem);
   }
-  h3 {
+  h3:not(.unset) {
     font-size: clamp(3.05rem, 1.5vw, 5rem);
   }
-  h4 {
+  h4:not(.unset) {
     font-size: clamp(2.44rem, 1.25vw, 3.75rem);
   }
-  h5 {
+  h5:not(.unset) {
     font-size: clamp(1.95rem, 1vw, 2.81rem);
   }
-  p {
+  p:not(.unset) {
     font-size: clamp(0.9rem, 1vw, 1rem);
   }
-  span {
+  span:not(.unset) {
     font-size: clamp(0.9rem, 1vw, 1.19rem);
   }
   caption {

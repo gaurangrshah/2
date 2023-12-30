@@ -1,9 +1,100 @@
 ---
 import Service from "./Service.astro";
-// import ServiceCard from "./ServiceCard.astro";
+import SectionWrapper from "./common/SectionWrapper.astro";
+import FreelancerCTA from "./ctas/FreelancerCta.astro";
+import EngineerCTA from "./ctas/EngineerCta.astro";
+import ConsultantCTA from "./ctas/ConsultantCta.astro";
+
+let selected = "consultant";
+if (typeof window !== "undefined") {
+  selected = localStorage.getItem("selectedHireTab") || "consultant";
+}
+const services = [
+  {
+    intro: [
+      `Are you an SMB owner tired of a stale website holding you back? I help passionate entrepreneurs like you build user-friendly, results-driven websites that convert visitors into customers.`,
+      `From concept to launch, I guide you through the entire process, from branding and design to development and marketing. Forget cookie-cutter solutions – I create bespoke websites that tell your unique story and generate real online success.`,
+    ],
+    section: "freelancer",
+    selected: selected === "freelancer",
+    services: [
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+    ],
+    // child: FreelancerCTA,
+  },
+  {
+    intro: [
+      `Feeling lost in the maze of cloud solutions or struggling to automate manual tasks? As a seasoned tech consultant, I've helped startups and established companies like yours simplify operations and achieve ambitious goals.`,
+      `I'll work closely with you to understand your specific challenges and craft a custom  blueprint outlining how you can leverage technology to boost efficiency, saves costs, and fuel future growth.`,
+    ],
+    section: "consultant",
+    selected: selected === "consultant",
+    services: [
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+    ],
+    // child: ConsultantCTA,
+  },
+  {
+    intro: [
+      `I'm a passionate full-stack engineer with expertise in crafting rich user interfaces and engaging online experiences. I thrive in collaborative environments and truly enjoy working with and learning from others.`,
+      `My diverse experience across industries and technologies allows me to tackle complex challenges and deliver impactful solutions. I'm equally excited about full-time opportunities to drive long-term innovation and part-time engagements where I can make an immediate difference.`,
+    ],
+    section: "engineer",
+    selected: selected === "engineer",
+    services: [
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+      {
+        title: "Web Design",
+        description: "This is a description for web designs.",
+        icon: "ph:user",
+      },
+    ],
+    // child: EngineerCTA,
+  },
+];
 ---
 
-<section class='flex flex-col items-center w-full max-w-4xl mx-auto'>
+<SectionWrapper
+  id='hire'
+  className='flex flex-col items-center w-full max-w-4xl mx-auto'
+>
   <svg
     xmlns='http://www.w3.org/2000/svg'
     class='absolute fill-accent/10 -z-10'
@@ -12,102 +103,49 @@ import Service from "./Service.astro";
     <path
       fill-rule='evenodd'
       d='M211.56 146c4.168-11.552 6.44-24.011 6.44-37C218 48.801 169.199 0 109 0S0 48.801 0 109c0 12.989 2.272 25.448 6.44 37C21.59 104.013 61.79 74 109 74s87.41 30.013 102.56 72Z'
-      clip-rule='evenodd'></path>
+      clip-rule='evenodd'
+    >
+    </path>
   </svg>
   <h3
     class='py-6 font-bold text-center text-base-100 text-outline-stroke tracking-wider initial'
   >
     Open to work
   </h3>
-  <div
-    role='tablist'
-    class='tabs tabs-boxed my-8 initial'
-    style='--gs-delay=1.25;'
-  >
+  <div role='tablist' class='tabs tabs-boxed my-8 initial'>
     <a role='tab' class='tab'>Freelancer</a>
     <a role='tab' class='tab tab-active'>Consultant</a>
     <a role='tab' class='tab'>Engineer</a>
   </div>
-  <div id='hire' class='group text-center my-6 initial' style='--gs-delay=2;'>
-    <Service
-      intro={`As a freelance developer, I work with small-to-medium sized businesses
-        (SMB) to help achieve various goals. From building a brand new web
-        presence to a complete overhaul of an exisiting online presence. I take
-        pride in being able to help you make the right decisions along the way
-        from branding to design to development.`}
-      section='freelancer'
-      services={[
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-      ]}
-    />
-    <Service
-      intro={`In the ever-evolving world of technology, it's crucial to have a trusted
-        advisor by your side. My goal is to help your business improve your
-        processes, tailor a custom workflow leveraging technology to meet and
-        exceed your business goals.`}
-      section='consultant'
-      selected={true}
-      services={[
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-      ]}
-    />
-    <Service
-      intro={`As a software engineer, I am available for hire for both full-time and
-        part-time positions. I enjoy working as a part of a team and
-        collaborating with others to build amazing products. My experience in
-        various industries and technologies allows me to be a valuable addition
-        to your team.`}
-      section='engineer'
-      services={[
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-        {
-          title: "Web Design",
-          description: "This is a description for web designs.",
-          icon: "ph:user",
-        },
-      ]}
-    />
+  <div class='group text-center my-6 initial'>
+    {
+      services.map((service) => {
+        return (
+          <Service
+            intro={service.intro}
+            section={service.section}
+            services={service.services}
+            selected={service.selected}
+          />
+        );
+      })
+    }
   </div>
-</section>
+</SectionWrapper>
 
 <style>
+  .highlight:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 103%;
+    height: calc(1em + 0.5rem);
+    background-color: oklch(var(--a));
+    z-index: -1;
+    font-weight: 900;
+    border-radius: 0.25rem;
+    margin-left: -0.2rem;
+  }
   .text-outline-stroke {
     text-shadow:
       -2px -2px 0 oklch(var(--pc)),
@@ -115,21 +153,19 @@ import Service from "./Service.astro";
       -2px 2px 0 oklch(var(--pc)),
       2px 2px 0 oklch(var(--pc));
   }
-
-  .initial {
-    --gs-delay: 0.25s;
-    --gs-duration: 1.25s;
-    animation: slideUpAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0) s;
-    animation-timeline: view();
-    animation-range: entry 50% cover 50%;
-  }
 </style>
 
 <script>
   (() => {
+    if (typeof window === "undefined") return;
+
+    const selectedHireTab = localStorage.getItem("selectedHireTab");
+    if (!selectedHireTab) {
+      localStorage.setItem("selectedHireTab", "consultant");
+    }
+
     const tabs = document.querySelectorAll(".tab");
-    const group = document.querySelector("#hire.group");
+    const group = document.querySelector("#hire .group");
     const sections = group?.querySelectorAll("[data-section]");
 
     tabs.forEach((tab) => {
@@ -139,6 +175,7 @@ import Service from "./Service.astro";
 
         const target = tab?.textContent?.toLowerCase();
         sections?.forEach((section) => {
+          localStorage.setItem("selectedHireTab", `${target}`);
           section.classList.remove("hidden");
           if ((section as HTMLDivElement)?.dataset.section !== target) {
             section.classList.add("hidden");

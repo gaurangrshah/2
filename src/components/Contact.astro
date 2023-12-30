@@ -1,96 +1,138 @@
-<div class='relative'>
-  <section
-    id='contact'
-    class='relative w-full max-w-4xl mx-auto text-base-content px-6'
-  >
-    <div class='flex flex-col items-center justify-center mb-24'>
-      <h3 class='text-5xl font-bold text-base-content leading-loose'>
-        Reach Out Today
-      </h3>
-      <p class='text-sm'>
-        Tell me a bit about your project and let's get to work!
-      </p>
-    </div>
+---
+import SendEmail from "../lib/nodemailer";
+import SectionWrapper from "./common/SectionWrapper.astro";
 
-    <form id='contact-form' class='flex w-full justify-between'>
-      <div class='w-3/4 border-b border-gray-900/10 pb-12 mx-auto'>
-        <div class='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-          <div class='sm:col-span-3'>
-            <label
-              for='first-name'
-              class='block text-sm font-medium leading-6 text-base-content'
-              >First name</label
-            >
-            <div class='mt-2'>
-              <input
-                type='text'
-                name='first-name'
-                id='first-name'
-                autocomplete='given-name'
-                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-              />
-            </div>
-          </div>
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
 
-          <div class='sm:col-span-3'>
-            <label
-              for='last-name'
-              class='block text-sm font-medium leading-6 text-base-content'
-              >Last name</label
-            >
-            <div class='mt-2'>
-              <input
-                type='text'
-                name='last-name'
-                id='last-name'
-                autocomplete='family-name'
-                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-              />
-            </div>
-          </div>
+  const sendEmail = new SendEmail();
 
-          <div class='sm:col-span-6'>
-            <label
-              for='email'
-              class='block text-sm font-medium leading-6 text-base-content'
-              >Email address</label
-            >
-            <div class='mt-2'>
-              <input
-                id='email'
-                name='email'
-                type='email'
-                autocomplete='email'
-                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
-              />
-            </div>
-          </div>
+  try {
+    sendEmail.sendEmail({
+      from: `${data.get("name")} <${data.get("email")}>`,
+      to: import.meta.env.SMTP_USER,
+      subject: "New Message from Contact Form",
+      text: `${data.get("message")}`,
+    });
 
-          <div class='sm:col-span-6'>
-            <label
-              for='message'
-              class='block text-sm font-medium leading-6 text-base-content'
-              >Message</label
-            >
-            <div class='mt-2'>
-              <textarea
-                id='message'
-                name='message'
-                rows={5}
-                class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20 p-2'
-              ></textarea>
-            </div>
+    // return new Response("Email sent successfully", {
+    //   status: 200,
+    // });
+    if (typeof window === "undefined") {
+      // showToast({
+      //   content: "Something went wrong. Please try again later.",
+      // });
+      console.log("Email sent successfully");
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      if (typeof window === "undefined") {
+        // showToast({
+        //   content: "Message sent! We'll be in touch shortly.",
+        // });
+        console.log(error.message);
+      }
+    }
+  }
+}
+---
+
+<SectionWrapper
+  id='contact'
+  className='relative w-full max-w-4xl mx-auto text-base-content px-6'
+>
+  <div class='flex flex-col items-center justify-center'>
+    <h3 class='text-5xl font-bold text-base-content leading-loose'>
+      Reach Out Today
+    </h3>
+    <p class='text-sm'>
+      Tell me a bit about your project and let's get to work!
+    </p>
+  </div>
+
+  <form id='contact-form' class='flex w-full justify-between' method='POST'>
+    <div class='w-3/4 mx-auto'>
+      <div class='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+        <div class='sm:col-span-3'>
+          <label
+            for='first-name'
+            class='block text-sm font-medium leading-6 text-base-content'
+          >
+            First name
+          </label>
+          <div class='mt-2'>
+            <input
+              type='text'
+              name='first-name'
+              id='first-name'
+              autocomplete='given-name'
+              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+            />
           </div>
         </div>
-        <div class='flex flex-row justify-end mt-12'>
-          <button type='submit' class='btn btn-accent'>Submit</button>
+
+        <div class='sm:col-span-3'>
+          <label
+            for='last-name'
+            class='block text-sm font-medium leading-6 text-base-content'
+          >
+            Last name
+          </label>
+          <div class='mt-2'>
+            <input
+              type='text'
+              name='last-name'
+              id='last-name'
+              autocomplete='family-name'
+              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+            />
+          </div>
+        </div>
+
+        <div class='sm:col-span-6'>
+          <label
+            for='email'
+            class='block text-sm font-medium leading-6 text-base-content'
+          >
+            Email address
+          </label>
+          <div class='mt-2'>
+            <input
+              id='email'
+              name='email'
+              type='email'
+              autocomplete='email'
+              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20'
+            />
+          </div>
+        </div>
+
+        <div class='sm:col-span-6'>
+          <label
+            for='message'
+            class='block text-sm font-medium leading-6 text-base-content'
+          >
+            Message
+          </label>
+          <div class='mt-2'>
+            <textarea
+              id='message'
+              name='message'
+              rows={5}
+              class='block w-full rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-primary placeholder:text-base-content focus:ring-2 focus:ring-inset focus:ring-base-300 sm:text-sm sm:leading-6 bg-base-100/20 p-2'
+            >
+            </textarea>
+          </div>
         </div>
       </div>
-    </form>
-  </section>
-</div>
+      <div class='flex flex-row justify-end mt-12'>
+        <button type='submit' class='btn btn-accent'>Submit</button>
+      </div>
+    </div>
+  </form>
+</SectionWrapper>
 
-<script>
+<!-- <script>
   import { showToast } from "../utils/show-toast";
 
   const form = document.getElementById("contact-form") as HTMLFormElement;
@@ -99,8 +141,6 @@
     event.preventDefault();
 
     const formData = new FormData(form);
-    console.log("🚀 | file: Contact.astro:101 | formData:", ...formData);
-
     // Access form data
     const firstName = formData.get("first-name");
     const lastName = formData.get("last-name");
@@ -135,4 +175,4 @@
     });
     // ...
   });
-</script>
+</script> -->

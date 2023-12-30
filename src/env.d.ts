@@ -10,7 +10,7 @@ interface AboutCardProps {
   title: string;
   description: string;
   link: string;
-  linkText: string;
   index: number;
+  linkText?: string;
   icon?: string;
 }

@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const main = ["primary", "secondary", "accent", "neutral"];
+
+const base = ["base-100", "base-200", "base-300"];
+---
+
+<Layout>
+  <main class='relative w-full h-full mt-24'>
+    <section class='h-4/5 my-auto mx-auto w-full max-w-4xl border'>
+      <h1>Colors</h1>
+
+      {
+        main.map((c) => {
+          const firstLetter = Array.from(c)[0];
+          const focus = `bg-[${`oklch(var(--${firstLetter}f))`}]`;
+          const content = `text-${c}-content`;
+          console.log("🚀 | file: colors.astro:19 | focus:", focus);
+          const color = `bg-${c}`;
+          return (
+            <div class='flex flex-row justify-between'>
+              <div class={`w-1/4 h-24 bg-base-100`}>
+                <p class={`text-base-content`}>{c}</p>
+              </div>
+              <div class={`w-1/4 h-24 bg-base-100-focus`}>
+                <p class={`text-base-content`}>{focus}</p>
+              </div>
+              <div class={`w-1/4 h-24 ${content}`}>
+                <p class={`text-base-content`}>{c}-content</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </section>
+  </main>
+</Layout>
