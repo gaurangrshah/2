@@ -6,7 +6,7 @@ const { title, description, link, linkText, icon, index } =
 ---
 
 <div
-  class='flex-1 px-6 py-3 to-secondary from-secondary/20 border border-base-200 rounded-lg shadow bg-gradient-to-br dark:from-secondary/0 dark:to-secondary/30 initial'
+  class='flex-1 px-6 py-3 from-accent/50 to-accent/20 border border-base-200 rounded-lg shadow bg-gradient-to-br dark:from-secondary/0 dark:to-secondary/30 initial animate-fadeIn'
 >
   <div class='flex gap-x-4'>
     <Icon name={icon || "ph:circles-four"} />
@@ -23,27 +23,31 @@ const { title, description, link, linkText, icon, index } =
   <p class='mb-3 font-normal text-secondary-content line-clamp-2'>
     {description}
   </p>
-  <a
-    href={link}
-    class='inline-flex items-center text-sm text-info hover:underline'
-  >
-    {linkText}
-    <svg
-      class='w-3 h-3 ms-2.5 rtl:rotate-[270deg]'
-      aria-hidden='true'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
-      viewBox='0 0 18 18'
-    >
-      <path
-        stroke='currentColor'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='2'
-        d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'
-      ></path>
-    </svg>
-  </a>
+  {
+    linkText ? (
+      <a
+        href={link}
+        class='inline-flex items-center text-sm text-info hover:underline'
+      >
+        {linkText}
+        <svg
+          class='w-3 h-3 ms-2.5 rtl:rotate-[270deg]'
+          aria-hidden='true'
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 18 18'
+        >
+          <path
+            stroke='currentColor'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'
+          />
+        </svg>
+      </a>
+    ) : null
+  }
 </div>
 
 <style define:vars={{ index }}>
@@ -54,11 +58,8 @@ const { title, description, link, linkText, icon, index } =
   }
 
   .initial {
-    --gs-delay: index * 0.25s;
-    --gs-duration: 6s;
-    animation: slideLeftAndFade var(--gs-duration) ease-in-out both;
-    animation-delay: var(--gs-delay, 0s);
+    animation: slideLeftAndFade ease-in-out both;
     animation-timeline: view();
-    animation-range: entry 0% cover 20%;
+    animation-range: entry 0% cover 30%;
   }
 </style>
