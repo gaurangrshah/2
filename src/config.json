@@ -3,7 +3,7 @@
     "name": "G.Shah Dev",
     "site_url":  "https://gshah.dev",
     "base_path": "/",
-    "trailingSlash": true,
+    "trailingSlash": false,
     "googleSiteVerification": "google-site-verification-code"
   },
   "metadata": {
@@ -20,7 +20,7 @@
       "site_name": "My Site",
       "type": "website",
       "images": {
-        "url": "~/assets/images/default-og-image.jpg",
+        "url": "~/assets/personwbgcircle.svg",
         "width": 1200,
         "height": 628
       }
@@ -74,12 +74,12 @@
           "primary": "#E3FADB",
           "secondary": "#97BBFA",
           "accent": "#81C784",
-          "info": "#1496BF",
+          "info": "#369cbb",
           "success": "#4CAF50",
           "warning": "#FFC107",
           "error": "#F44336",
-          "link": "var(--ph-color-primary)",
-          "linkActive": "var(--ph-color-link)"
+          "link": "#369cbb",
+          "linkActive": "#5da0b5"
         }
       },
       "dark": {
@@ -96,8 +96,9 @@
           "success": "#8BC34A",
           "warning": "#FFEB3B",
           "error": "#E57373",
-          "link": "var(--ph-color-primary)",
-          "linkActive": "var(--ph-color-link)"}
+          "link": "#62C9FF",
+          "linkActive": "#32b2f7"
+        }
       }
     }
   }
