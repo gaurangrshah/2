@@ -77,8 +77,33 @@ module.exports = {
 	 plugins: [require("daisyui")],
 	 daisyui: {
 		/** @link: https://daisyui.com/docs/config/ */
-		themes: ["wireframe", "black"],
-		darkTheme: 'black',
+		themes: [{
+      tea: {
+        "primary": "#4F6796",
+        "primary-content": "#d1d1d1",
+        "secondary": "#5499B6",
+        "secondary-content": "#7a7a7a",
+        "accent": "#54B685",
+        "accent-content": "#404040",
+        "neutral": "#333333",
+        "base-100": "#efffed",
+        "base-200": "#DAF6D6",
+        "base-300": "#C4F1BE",
+      },
+      "black-tea": {
+        "primary": "#4F9689",
+        "primary-content": "#ffffff",
+        "secondary": "#54B685",
+        "secondary-content": "#bcbcbc",
+        "accent": "#C4F1BE",
+        "accent-content": "#404040",
+        "neutral": "#e0e0e0",
+        "base-100": "#121A29",
+        "base-200": "#131C2B",
+        "base-300": "#182438",
+      }
+    }],
+		darkTheme: 'black-tea',
  		base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes

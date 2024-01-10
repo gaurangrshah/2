@@ -4,7 +4,7 @@
     id='theme-check'
     type='checkbox'
     class='theme-controller hidden'
-    value='wireframe'
+    value='tea'
   />
 
   <!-- sun icon -->
@@ -55,9 +55,9 @@
 
   themeToggle?.addEventListener("click", () => {
     if (themeCheck.checked) {
-      localStorage.setItem("theme", "wireframe");
+      localStorage.setItem("theme", "tea");
     } else {
-      localStorage.setItem("theme", "black");
+      localStorage.setItem("theme", "black-tea");
     }
   });
 </script>
