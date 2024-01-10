@@ -7,18 +7,19 @@ const yrsWorking = 12;
 const expertise = "Web & Mobile UI";
 ---
 
-<div class='relative w-full max-w-4xl mx-auto bg-grid text-primary-content'>
-  <SectionWrapper id='hero' className='relative'>
+<div class='bg-grid relative text-primary-content'>
+  <SectionWrapper id='hero' className='relative w-full max-w-4xl mx-auto '>
     <div
       class='w-full h-full text-center flex flex-1 flex-col justify-center items-center'
     >
       <h2
-        class='font-bold leading-tight text-4xl animate-slideUpAndFade initial text-[oklch(var(--aws))]'
+        class='font-bold leading-tight text-4xl animate-slideUpAndFade initial text-primary'
       >
         Gaurang Shah
       </h2>
-      <span class='text-lg text-accent font-bold initial'></span>
-       Full Stack Developer
+      <span class='text-lg text-accent font-bold initial'>
+        Full Stack Developer
+      </span>
     </div>
     <div class='w-full flex justify-between gap-6 p-12'>
       <div class='hidden md:block w-1/4 max-w-1/4 my-auto text-left'>
@@ -61,20 +62,18 @@ const expertise = "Web & Mobile UI";
 </div>
 
 <style>
-  [data-theme="dark"] .bg-grid::before {
-    --gradient-base: oklch(var(--ac));
-  }
-
-  .bg-grid::before {
-    --gradient-base: oklch(var(--pc));
+  .bg-grid::after {
+    --gradient-base: oklch(var(--p));
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     z-index: -1;
+    max-width: 56rem /* 896px */;
     width: 100%;
     height: 100%;
     background-size: 15px 15px;
+    transform: translate(-50%, -50%);
     -webkit-mask-image: radial-gradient(
       circle,
       rgba(0, 0, 0, 1) 0%,
@@ -94,6 +93,22 @@ const expertise = "Web & Mobile UI";
         transparent 1.5px
       ),
       linear-gradient(to bottom, var(--gradient-base) 1.5px, transparent 1.5px);
+  }
+  .bg-grid::before {
+    --gradient-base: oklch(var(--b3));
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    /* background-size: 15px 15px; */
+    background-image: linear-gradient(
+      to bottom right,
+      var(--gradient-base),
+      oklch(var(--b1))
+    );
   }
 
   .h5-category {
