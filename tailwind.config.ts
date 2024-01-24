@@ -79,7 +79,7 @@ module.exports = {
 		/** @link: https://daisyui.com/docs/config/ */
 		themes: [{
       tea: {
-        "primary": "#4F6796",
+        "primary": "#1c5567",
         "primary-content": "#d1d1d1",
         "secondary": "#5499B6",
         "secondary-content": "#7a7a7a",
@@ -91,7 +91,7 @@ module.exports = {
         "base-300": "#C4F1BE",
       },
       "black-tea": {
-        "primary": "#4F9689",
+        "primary": "#4F6796",
         "primary-content": "#ffffff",
         "secondary": "#54B685",
         "secondary-content": "#bcbcbc",

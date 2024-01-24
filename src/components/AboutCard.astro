@@ -6,13 +6,13 @@ const { title, description, link, linkText, icon, index } =
 ---
 
 <div
-  class='flex-1 px-6 py-3 from-accent/50 to-accent/20 border border-base-200 rounded-lg shadow bg-gradient-to-br dark:from-secondary/0 dark:to-secondary/30 initial animate-fadeIn'
+  class='flex-1 w-full min-w-[14rem] px-6 py-3 from-primary/50 to-primary/20 border border-base-200 rounded-lg shadow bg-gradient-to-br dark:from-secondary/0 dark:to-secondary/30 initial animate-fadeIn'
 >
   <div class='flex gap-x-4'>
     <Icon name={icon || "ph:circles-four"} />
     <h5
       slot='title'
-      class='mb-2 text-2xl font-semibold tracking-tight text-primary-content truncate'
+      class='mb-2 text-2xl font-semibold tracking-tight text-accent truncate [text-shadow:white]'
     >
       {title || "Your Skills"}
     </h5>
@@ -20,7 +20,7 @@ const { title, description, link, linkText, icon, index } =
       <slot name='title' />
     </a>
   </div>
-  <p class='mb-3 font-normal text-secondary-content line-clamp-2'>
+  <p class='mb-3 font-normal text-gray-100 line-clamp-2'>
     {description}
   </p>
   {
