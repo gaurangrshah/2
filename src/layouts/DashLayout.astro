@@ -1,0 +1,36 @@
+---
+import type { MetaData as MetaDataType } from "../types/metadata";
+import CommonMeta from "../components/common/CommonMeta.astro";
+import Metadata from "../components/common/Metadata.astro";
+import Themes from "astro-themes";
+import ThemeIcon from "../components/ThemeIcon.astro";
+import SocialBars from "../components/common/SocialBars.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/globals.css";
+
+export interface Props {
+  metadata?: MetaDataType;
+}
+
+const { metadata = {} } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en' class='scroll-smooth'>
+  <head>
+    <CommonMeta />
+    <Themes defaultTheme='light' />
+    <script
+      src='https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js'
+    ></script>
+
+    <meta name='generator' content={Astro.generator} />
+    <Metadata {...metadata} />
+  </head>
+  <body class='font-geist'>
+    <Navbar />
+    <ThemeIcon />
+    <SocialBars />
+    <slot />
+  </body>
+</html>

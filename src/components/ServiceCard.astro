@@ -4,10 +4,8 @@ import { Icon } from "astro-icon";
 const { title, description, icon } = Astro.props as ServiceCardProps;
 ---
 
-<div class='md:w-80 w-full px-6 md:px-0 secondary'>
-  <div
-    class='w-full flex flex-row p-4 border md:border-b border-primary-content/30'
-  >
+<div class='md:w-80 w-full px-6 md:px-0 secondary card-shadow rounded-md'>
+  <div class='w-full flex flex-row p-4'>
     <div>
       <Icon name={icon} />
     </div>
@@ -21,6 +19,43 @@ const { title, description, icon } = Astro.props as ServiceCardProps;
 </div>
 
 <style>
+  :root {
+    --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+    --card-hover-box-shadow-1-y: 5px;
+    --card-hover-box-shadow-1-blur: 10px;
+    --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+    --card-hover-box-shadow-2-y: 15px;
+    --card-hover-box-shadow-2-blur: 25px;
+  }
+
+  :root[data-theme="dark"] {
+    /* https://codepen.io/aaroniker/pen/yLEPJXj */
+    --card-box-shadow-1: rgba(24, 24, 27, 0.02);
+    --card-box-shadow-1-y: 3px;
+    --card-box-shadow-1-blur: 6px;
+    --card-box-shadow-2: rgba(24, 24, 27, 0.04);
+    --card-box-shadow-2-y: 2px;
+    --card-box-shadow-2-blur: 7px;
+  }
+
+  .card-shadow {
+    background-color: oklch(var(--b3));
+    box-shadow:
+      0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
+        var(--card-box-shadow-1),
+      0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur)
+        var(--card-box-shadow-2),
+      0 0 0 1px var(--card-border-color);
+  }
+
+  .card-shadow:hover {
+    box-shadow:
+      0px 3px 6px var(--card-hover-box-shadow-1),
+      0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur)
+        var(--card-hover-box-shadow-2),
+      0 0 0 1px var(--card-hover-border-color);
+  }
+
   [astro-icon] {
     width: 2rem;
     height: 2rem;
