@@ -16,7 +16,7 @@ export default defineConfig({
   // @TODO: replace URL
   base: site.base_path,
   trailingSlash: site.trailingSlash ? 'always' : 'never',
-  output: 'hybrid',
+  output: 'server',
   integrations: [
     tailwind({
       applyBaseStyles: false // allows base styles to be overridden
