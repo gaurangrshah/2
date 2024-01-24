@@ -68,6 +68,7 @@
   }
 
   * {
+    min-width: 0;
     transition: background-color var(--animation-duration) ease-in-out,
       color var(--animation-duration) ease-in-out,
       border-color var(--animation-duration) ease-in-out,

@@ -2,6 +2,7 @@ import SendEmail from '../../lib/nodemailer';
 
 import type { APIRoute } from 'astro';
 
+export const prerender = false;
 
 export const POST: APIRoute = async ({request}) => {
   const body = await request.json();
@@ -47,5 +48,3 @@ export const POST: APIRoute = async ({request}) => {
   }
 
 };
-
-export const prerender = false;

@@ -93,7 +93,7 @@ const services = [
 
 <SectionWrapper
   id='hire'
-  className='flex flex-col items-center w-full max-w-4xl mx-auto'
+  className='flex flex-col items-center w-full max-w-4xl mx-auto px-9 lg:px-0'
 >
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -134,24 +134,12 @@ const services = [
 </SectionWrapper>
 
 <style>
-  .highlight:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 103%;
-    height: calc(1em + 0.5rem);
-    background-color: oklch(var(--a));
-    z-index: -1;
-    font-weight: 900;
-    border-radius: 0.25rem;
-    margin-left: -0.2rem;
-  }
   .text-outline-stroke {
     text-shadow:
-      -2px -2px 0 oklch(var(--pc)),
-      2px -2px 0 oklch(var(--pc)),
-      -2px 2px 0 oklch(var(--pc)),
-      2px 2px 0 oklch(var(--pc));
+      -2px -2px 0 oklch(var(--a)),
+      2px -2px 0 oklch(var(--a)),
+      -2px 2px 0 oklch(var(--a)),
+      2px 2px 0 oklch(var(--a));
   }
 </style>
 
